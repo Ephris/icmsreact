@@ -1,0 +1,493 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T12:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" type="device">
+  <diagram name="Manage User (Admin) Sequence" id="manage-user-sequence">
+    <mxGraphModel dx="1100" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="title" value="ICMS - Manage User (Admin) Sequence Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== TOP PARTICIPANTS ==================== -->
+        
+        <mxCell id="user-actor" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="50" width="30" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="users-page-box" value="Users&#xa;Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="150" y="55" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="form-box" value="User&#xa;Form" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="270" y="55" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-box" value="User&#xa;Controller" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="390" y="55" width="70" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="hash-box" value="Hash&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="55" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database-box" value="Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="45" width="60" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LIFELINES ==================== -->
+        
+        <mxCell id="user-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="110" as="sourcePoint" />
+            <mxPoint x="70" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="users-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="95" as="sourcePoint" />
+            <mxPoint x="180" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="form-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="95" as="sourcePoint" />
+            <mxPoint x="300" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="controller-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="425" y="95" as="sourcePoint" />
+            <mxPoint x="425" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="hash-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="95" as="sourcePoint" />
+            <mxPoint x="550" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="database-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="100" as="sourcePoint" />
+            <mxPoint x="680" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== SECTION 1: VIEW USERS ==================== -->
+        
+        <mxCell id="section1-frame" value="View Users List" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontStyle=1;fontSize=10;width=100;height=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="115" width="690" height="130" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="users-act-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="140" width="10" height="90" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="165" width="10" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="675" y="180" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="145" as="sourcePoint" />
+            <mxPoint x="175" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-1" value="openUsersPage()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="75" y="128" width="80" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="170" as="sourcePoint" />
+            <mxPoint x="420" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-2" value="GET /users (index)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="250" y="153" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="187" as="sourcePoint" />
+            <mxPoint x="675" y="187" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-3" value="query users WHERE role IN&#xa;(coordinator, dept_head, company_admin)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="475" y="168" width="165" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-4" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="675" y="200" as="sourcePoint" />
+            <mxPoint x="430" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-4" value="return users[]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="520" y="187" width="70" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-5" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="230" as="sourcePoint" />
+            <mxPoint x="70" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-5" value="display users table" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="80" y="215" width="80" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== SECTION 2: CREATE USER ==================== -->
+        
+        <mxCell id="section2-frame" value="Create User" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontStyle=1;fontSize=10;width=85;height=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="255" width="690" height="220" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="form-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="280" width="10" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="370" width="10" height="75" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="hash-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="545" y="400" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="675" y="425" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="285" as="sourcePoint" />
+            <mxPoint x="295" y="285" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-1" value="click Create New User" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="125" y="268" width="100" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-2" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="295" y="310" as="sourcePoint" />
+            <mxPoint x="70" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-2" value="show user form" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="135" y="295" width="70" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="340" as="sourcePoint" />
+            <mxPoint x="295" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-3" value="fill: name, email, username,&#xa;password, role, status" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="110" y="318" width="115" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="305" y="375" as="sourcePoint" />
+            <mxPoint x="420" y="375" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-4" value="POST /users (store)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="315" y="358" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Controller validates -->
+        <mxCell id="controller-self-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#8B0000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="382" width="8" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-2-5" value="validate,&#xa;check coordinator unique" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=6;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="440" y="380" width="80" height="18" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-6" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="407" as="sourcePoint" />
+            <mxPoint x="545" y="407" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-6" value="Hash::make(password)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="445" y="392" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-7" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="420" as="sourcePoint" />
+            <mxPoint x="430" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-7" value="hashed password" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="450" y="408" width="75" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-8" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="435" as="sourcePoint" />
+            <mxPoint x="675" y="435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-8" value="INSERT INTO users" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="510" y="420" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-9" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="675" y="445" as="sourcePoint" />
+            <mxPoint x="430" y="445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-9" value="user created" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="520" y="432" width="60" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-10" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="295" y="460" as="sourcePoint" />
+            <mxPoint x="70" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-10" value="redirect: &quot;User created successfully&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="95" y="445" width="145" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== SECTION 3: EDIT USER ==================== -->
+        
+        <mxCell id="section3-frame" value="Edit User" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontStyle=1;fontSize=10;width=65;height=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="485" width="690" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="form-act-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="510" width="10" height="160" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-3a" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="540" width="10" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-3a" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="675" y="555" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-3b" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="615" width="10" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-3b" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="675" y="640" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="515" as="sourcePoint" />
+            <mxPoint x="295" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-1" value="click Edit on user" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="130" y="498" width="80" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="305" y="545" as="sourcePoint" />
+            <mxPoint x="420" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-2" value="GET /users/{id}/edit" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="315" y="528" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="560" as="sourcePoint" />
+            <mxPoint x="675" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-3" value="fetch user by id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="510" y="545" width="75" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-4" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="295" y="590" as="sourcePoint" />
+            <mxPoint x="70" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-4" value="show form with user data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="115" y="575" width="110" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-5" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="305" y="620" as="sourcePoint" />
+            <mxPoint x="420" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-5" value="PUT /users/{id} (update)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="305" y="603" width="105" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-6" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="650" as="sourcePoint" />
+            <mxPoint x="675" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-6" value="UPDATE users SET ..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="505" y="635" width="95" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-7" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="295" y="670" as="sourcePoint" />
+            <mxPoint x="70" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-7" value="redirect: &quot;User updated successfully&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="95" y="655" width="145" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== SECTION 4: DELETE USER ==================== -->
+        
+        <mxCell id="section4-frame" value="Delete User" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontStyle=1;fontSize=10;width=85;height=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="695" width="690" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="users-act-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="720" width="10" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="760" width="10" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="675" y="775" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="725" as="sourcePoint" />
+            <mxPoint x="175" y="725" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-1" value="click Delete on user" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="75" y="708" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-2" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="750" as="sourcePoint" />
+            <mxPoint x="70" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-2" value="confirm delete?" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="85" y="735" width="70" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="765" as="sourcePoint" />
+            <mxPoint x="420" y="765" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-3" value="DELETE /users/{id} (destroy)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="230" y="748" width="125" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="785" as="sourcePoint" />
+            <mxPoint x="675" y="785" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-4" value="DELETE FROM users" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="510" y="770" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-5" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="820" as="sourcePoint" />
+            <mxPoint x="70" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-5" value="redirect: &quot;User deleted successfully&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="75" y="805" width="140" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== NOTES ==================== -->
+        
+        <mxCell id="note-main" value="Admin manages users with roles:&#xa;• coordinator (only 1 allowed)&#xa;• dept_head&#xa;• company_admin&#xa;&#xa;Password hashed using bcrypt&#xa;Email and username must be unique" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFACD;strokeColor=#B8860B;fontSize=8;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="40" y="850" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LIFECYCLE END MARKERS (X) ==================== -->
+        
+        <mxCell id="x-users" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="172" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-form" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="292" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-controller" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="417" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-hash" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="542" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-database" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="672" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== BOTTOM PARTICIPANTS ==================== -->
+        
+        <mxCell id="user-actor-btm" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="1010" width="30" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="users-page-box-btm" value="Users&#xa;Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="150" y="1015" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="form-box-btm" value="User&#xa;Form" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="270" y="1015" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-box-btm" value="User&#xa;Controller" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1015" width="70" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="hash-box-btm" value="Hash&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1015" width="60" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database-box-btm" value="Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1005" width="60" height="55" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

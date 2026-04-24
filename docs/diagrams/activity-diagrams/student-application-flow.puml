@@ -1,0 +1,147 @@
+@startuml Student_Application_Flow
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activityShape roundedBox
+
+title ICMS - Student Internship Application Flow\nActivity Diagram
+
+|Student|
+start
+
+:Login to ICMS;
+
+:Navigate to Internship Listings;
+
+:Browse Available Postings;
+
+if (Found Suitable Posting?) then (yes)
+    :View Posting Details;
+    
+    if (Meets Requirements?) then (yes)
+        :Check Profile Completeness;
+        
+        if (Profile Complete?) then (no)
+            :Update Profile Information;
+            :Upload/Update Resume;
+            :Add Skills & Certifications;
+        else (yes)
+        endif
+        
+        :Click "Apply" Button;
+        
+        :Fill Application Form;
+        
+        :Upload Required Documents;
+        note right
+            - Resume
+            - Cover Letter
+            - Portfolio (optional)
+            - Certifications
+        end note
+        
+        :Review Application;
+        
+        if (Confirm Submission?) then (yes)
+            :Submit Application;
+            
+            |System|
+            :Validate Application Data;
+            
+            if (Validation Passed?) then (yes)
+                :Save Application;
+                :Set Status = "Pending";
+                :Generate Application ID;
+                :Send Confirmation Notification;
+                
+                |Student|
+                :Receive Confirmation;
+                :View Application in Dashboard;
+                
+                :Wait for Review;
+                
+                |Company|
+                :Review Application;
+                
+                if (Application Shortlisted?) then (yes)
+                    |System|
+                    :Update Status = "Shortlisted";
+                    :Notify Student;
+                    
+                    |Company|
+                    if (Accept Candidate?) then (yes)
+                        |System|
+                        :Update Status = "Accepted";
+                        :Set Offer Expiration (120 hours);
+                        :Notify Student of Offer;
+                        
+                        |Student|
+                        :Receive Offer Notification;
+                        :Review Offer Details;
+                        
+                        if (Accept Offer?) then (yes)
+                            if (Within Expiration Window?) then (yes)
+                                :Click "Accept Offer";
+                                
+                                |System|
+                                :Update Status = "Approved";
+                                :Mark as Accepted Application;
+                                :Notify Company;
+                                :Notify Advisor;
+                                
+                                |Student|
+                                :Internship Confirmed!;
+                                #LightGreen:Application Successful;
+                                stop
+                            else (no)
+                                #Orange:Offer Expired;
+                                :Contact Coordinator;
+                                stop
+                            endif
+                        else (no)
+                            :Decline Offer;
+                            |System|
+                            :Update Status = "Declined";
+                            stop
+                        endif
+                    else (no)
+                        |System|
+                        :Update Status = "Rejected";
+                        :Send Rejection with Feedback;
+                        
+                        |Student|
+                        :Receive Rejection;
+                        :View Feedback;
+                        #Pink:Application Rejected;
+                        stop
+                    endif
+                else (no)
+                    |System|
+                    :Update Status = "Rejected";
+                    :Send Rejection Notification;
+                    
+                    |Student|
+                    #Pink:Application Not Shortlisted;
+                    stop
+                endif
+            else (no)
+                |Student|
+                :View Validation Errors;
+                :Correct Information;
+                :Re-submit;
+            endif
+        else (no)
+            :Cancel Application;
+            stop
+        endif
+    else (no)
+        :Search Different Posting;
+    endif
+else (no)
+    :Refine Search Criteria;
+    :Use Filters;
+endif
+
+stop
+
+@enduml
+

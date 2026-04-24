@@ -1,0 +1,239 @@
+@startuml Company_Post_Internship
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam sequenceMessageAlign center
+
+title ICMS - Company Post Internship\nSequence Diagram
+
+actor "Company Admin" as Admin
+participant "Browser\n(React)" as UI
+participant "API\nController" as API
+participant "Posting\nService" as PostingService
+participant "Validation\nService" as Validator
+participant "Matching\nService" as Matcher
+database "Database" as DB
+participant "Notification\nService" as NotifService
+actor "Students" as Students
+actor "Coordinator" as Coordinator
+
+== Create New Posting ==
+
+Admin -> UI : Click "Create New Posting"
+activate UI
+
+UI --> Admin : Display posting form
+deactivate UI
+
+Admin -> UI : Fill posting details
+activate UI
+note right of UI
+    Form Fields:
+    - Title
+    - Description
+    - Type (Full-time/Part-time)
+    - Location
+    - Salary Range
+    - Start/End Date
+    - Requirements
+    - Skills Required
+    - Min GPA
+    - Application Deadline
+end note
+
+UI --> Admin : Form ready
+deactivate UI
+
+== Save as Draft (Optional) ==
+
+Admin -> UI : Click "Save as Draft"
+activate UI
+
+UI -> API : POST /api/postings (status: draft)
+activate API
+
+API -> Validator : Validate partial data
+activate Validator
+Validator --> API : Validation passed
+deactivate Validator
+
+API -> DB : INSERT INTO postings (status = 'draft')
+activate DB
+DB --> API : Draft saved (ID: 789)
+deactivate DB
+
+API --> UI : 201 Created (draft)
+deactivate API
+
+UI --> Admin : "Draft saved successfully"
+deactivate UI
+
+== Publish Posting ==
+
+Admin -> UI : Click "Publish Posting"
+activate UI
+
+UI -> API : PUT /api/postings/{id}/publish
+activate API
+
+API -> Validator : Validate complete posting
+activate Validator
+
+Validator -> Validator : Check all required fields
+Validator -> Validator : Validate date ranges
+Validator -> Validator : Validate salary format
+Validator -> DB : Verify supervisor exists
+activate DB
+DB --> Validator : Supervisor valid
+deactivate DB
+
+Validator --> API : All validations passed
+deactivate Validator
+
+API -> PostingService : publishPosting(posting_id)
+activate PostingService
+
+PostingService -> DB : BEGIN TRANSACTION
+activate DB
+
+PostingService -> DB : UPDATE posting status = 'open'
+DB --> PostingService : Status updated
+
+PostingService -> DB : SET published_at = NOW()
+DB --> PostingService : Timestamp set
+
+PostingService -> DB : COMMIT TRANSACTION
+deactivate DB
+
+== Find Matching Students ==
+
+PostingService -> Matcher : findMatchingStudents(posting)
+activate Matcher
+
+Matcher -> DB : Query students by criteria
+activate DB
+note right of DB
+    Match criteria:
+    - Skills overlap
+    - GPA >= min_gpa
+    - Location preference
+    - Graduation year
+end note
+DB --> Matcher : Return matching students
+deactivate DB
+
+Matcher --> PostingService : List of matching students (IDs)
+deactivate Matcher
+
+== Send Notifications ==
+
+PostingService -> NotifService : notifyMatchingStudents(students, posting)
+activate NotifService
+
+loop For each matching student
+    NotifService -> DB : INSERT notification
+    activate DB
+    DB --> NotifService : Notification created
+    deactivate DB
+end
+
+NotifService --> Students : "New Matching Internship Available!"
+deactivate NotifService
+
+PostingService -> NotifService : notifyCoordinator(posting)
+activate NotifService
+
+NotifService -> DB : Get coordinator info
+activate DB
+DB --> NotifService : Coordinator data
+deactivate DB
+
+NotifService -> DB : Create coordinator notification
+activate DB
+DB --> NotifService : Notification saved
+deactivate DB
+
+NotifService --> Coordinator : "New Posting Published"
+deactivate NotifService
+
+PostingService --> API : Posting published successfully
+deactivate PostingService
+
+API --> UI : 200 OK (published posting)
+deactivate API
+
+UI --> Admin : Show success message\n"Posting Published!\nMatching students notified."
+deactivate UI
+
+== Edit Published Posting ==
+
+Admin -> UI : Click "Edit Posting"
+activate UI
+
+UI -> API : PUT /api/postings/{id}
+activate API
+
+API -> PostingService : updatePosting(id, data)
+activate PostingService
+
+PostingService -> DB : UPDATE posting
+activate DB
+DB --> PostingService : Updated
+deactivate DB
+
+PostingService -> NotifService : notifyApplicants(posting_id)
+activate NotifService
+
+NotifService -> DB : Get all applicants
+activate DB
+DB --> NotifService : Applicant list
+deactivate DB
+
+loop For each applicant
+    NotifService -> DB : CREATE update notification
+end
+
+NotifService --> Students : "Posting Updated"
+deactivate NotifService
+
+PostingService --> API : Update complete
+deactivate PostingService
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Admin : "Posting updated"
+deactivate UI
+
+== Close Posting ==
+
+Admin -> UI : Click "Close Posting"
+activate UI
+
+UI -> API : PUT /api/postings/{id}/close
+activate API
+
+API -> PostingService : closePosting(id, reason)
+activate PostingService
+
+PostingService -> DB : UPDATE status = 'closed'
+activate DB
+DB --> PostingService : Status updated
+deactivate DB
+
+PostingService -> NotifService : notifyPendingApplicants(posting_id)
+activate NotifService
+
+NotifService --> Students : "Posting Closed"
+deactivate NotifService
+
+PostingService --> API : Posting closed
+deactivate PostingService
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Admin : "Posting closed successfully"
+deactivate UI
+
+@enduml
+

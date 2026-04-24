@@ -1,0 +1,247 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" etag="icms-realtime" type="device">
+  <diagram id="realtime-communication" name="Real-time Communication">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="ICMS - Real-time Communication Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="280" y="20" width="540" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Pusher Cloud -->
+        <mxCell id="pusher-cloud" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="pusher-label" value="PUSHER CLOUD&#xa;WebSocket Server" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#6a1b9a;" vertex="1" parent="1">
+          <mxGeometry x="470" y="125" width="160" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Browser Clients -->
+        <mxCell id="browsers-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="900" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="browsers-label" value="CLIENT BROWSERS (Connected via WebSocket)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="285" width="350" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Browser 1 - Student -->
+        <mxCell id="browser1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="320" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="browser1-icon" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn-icons-png.flaticon.com/512/718/718064.png" vertex="1" parent="1">
+          <mxGeometry x="140" y="330" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser1-title" value="Student Browser" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="175" y="330" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser1-react" value="React 19" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0288d1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="140" y="365" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser1-echo" value="Laravel Echo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=#16a34a;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="205" y="365" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser1-channel" value="Channel: private-user.123" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="388" width="140" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Browser 2 - Advisor -->
+        <mxCell id="browser2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="browser2-icon" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn-icons-png.flaticon.com/512/718/718064.png" vertex="1" parent="1">
+          <mxGeometry x="330" y="330" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser2-title" value="Advisor Browser" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="330" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser2-react" value="React 19" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0288d1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="330" y="365" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser2-echo" value="Laravel Echo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=#16a34a;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="395" y="365" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser2-channel" value="Channel: private-user.456" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="330" y="388" width="140" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Browser 3 - Supervisor -->
+        <mxCell id="browser3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="320" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="browser3-icon" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn-icons-png.flaticon.com/512/718/718064.png" vertex="1" parent="1">
+          <mxGeometry x="520" y="330" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser3-title" value="Supervisor Browser" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="555" y="330" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser3-react" value="React 19" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0288d1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="520" y="365" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser3-echo" value="Laravel Echo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=#16a34a;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="585" y="365" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser3-channel" value="Channel: private-user.789" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="388" width="140" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Browser 4 - Chat Room -->
+        <mxCell id="browser4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="320" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="browser4-icon" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn-icons-png.flaticon.com/512/718/718064.png" vertex="1" parent="1">
+          <mxGeometry x="710" y="330" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser4-title" value="Chat Participants" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="745" y="330" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser4-react" value="React 19" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0288d1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="710" y="365" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser4-echo" value="Laravel Echo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=#16a34a;fontSize=9;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="775" y="365" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="browser4-channel" value="Channel: conversation.42" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="710" y="388" width="140" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- WebSocket Arrows to Pusher -->
+        <mxCell id="ws1" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#8e24aa;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="320" as="sourcePoint" />
+            <mxPoint x="460" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws2" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#8e24aa;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="320" as="sourcePoint" />
+            <mxPoint x="500" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws3" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#8e24aa;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="320" as="sourcePoint" />
+            <mxPoint x="580" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws4" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#8e24aa;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="780" y="320" as="sourcePoint" />
+            <mxPoint x="640" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Laravel Server -->
+        <mxCell id="laravel-server" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="500" width="700" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="laravel-label" value="LARAVEL APPLICATION SERVER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="210" y="505" width="280" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Event Classes -->
+        <mxCell id="events-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#f57c00;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="540" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="events-label" value="Event Classes (app/Events/)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="230" y="545" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="event1" value="MessageSent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="235" y="575" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="event2" value="MessageEdited" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="325" y="575" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="event3" value="MessageDeleted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="235" y="610" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="event4" value="Typing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="325" y="610" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="event5" value="MessageReadEvent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="235" y="645" width="90" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="event6" value="NotificationReceived" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="335" y="645" width="70" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Broadcasting Driver -->
+        <mxCell id="broadcast-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#8e24aa;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="540" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="broadcast-label" value="Broadcasting Driver" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#6a1b9a;" vertex="1" parent="1">
+          <mxGeometry x="460" y="545" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="broadcast-pusher" value="Pusher PHP SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="580" width="140" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="broadcast-config" value="config/broadcasting.php" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="480" y="620" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="broadcast-channels" value="routes/channels.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="650" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Channel Types -->
+        <mxCell id="channels-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="540" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="channels-label" value="Channel Types" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="690" y="545" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="channel1" value="Private Channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#388e3c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="575" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="channel1-desc" value="private-user.{userId}" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="600" width="160" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="channel2" value="Presence Channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#388e3c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="625" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="channel2-desc" value="presence-conversation.{id}" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="650" width="160" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="channel3" value="Public Channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#388e3c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="670" width="160" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow-events-broadcast" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="620" as="sourcePoint" />
+            <mxPoint x="450" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow-broadcast-channels" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="620" as="sourcePoint" />
+            <mxPoint x="680" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow-server-pusher" value="HTTP POST to Pusher API" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#8e24aa;fontStyle=1;" edge="1" parent="1">
+          <mxGeometry x="-0.5" y="10" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="500" as="sourcePoint" />
+            <mxPoint x="550" y="220" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="740" width="450" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="Real-time Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="745" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-text" value="1. User action triggers Event → 2. Event dispatched to Broadcasting Driver → 3. Pusher PHP SDK sends to Pusher Cloud → 4. Pusher broadcasts via WebSocket → 5. Laravel Echo receives on client → 6. React updates UI" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="770" width="430" height="40" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

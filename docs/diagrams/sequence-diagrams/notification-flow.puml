@@ -1,0 +1,235 @@
+@startuml Notification_Flow
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam sequenceMessageAlign center
+
+title ICMS - Notification System Flow\nSequence Diagram
+
+actor "Trigger User" as Trigger
+actor "Recipient User" as Recipient
+participant "Browser\n(React)" as UI
+participant "API\nController" as API
+participant "Event\nDispatcher" as EventDispatcher
+participant "Notification\nService" as NotifService
+participant "Email\nService" as EmailService
+participant "Push\nService" as PushService
+database "Database" as DB
+participant "WebSocket\nServer" as WS
+
+== Event Triggered (e.g., Application Submitted) ==
+
+Trigger -> UI : Perform action\n(Submit Application)
+activate UI
+
+UI -> API : POST /api/applications
+activate API
+
+API -> API : Process business logic
+API -> EventDispatcher : dispatch('application.submitted', data)
+activate EventDispatcher
+
+EventDispatcher -> NotifService : handleApplicationSubmitted(event)
+activate NotifService
+
+== Determine Recipients ==
+
+NotifService -> DB : Get notification preferences
+activate DB
+note right of DB
+    Query:
+    - Posting owner (company admin)
+    - Assigned supervisor
+    - Student's advisor
+end note
+DB --> NotifService : Recipients & preferences
+deactivate DB
+
+== Create Notifications ==
+
+loop For each recipient
+    NotifService -> NotifService : Build notification payload
+    note right of NotifService
+        Notification:
+        {
+            type: 'new_application',
+            title: 'New Application',
+            message: 'John Doe applied...',
+            action_url: '/applications/123',
+            icon: 'application'
+        }
+    end note
+    
+    NotifService -> DB : INSERT INTO notifications
+    activate DB
+    DB --> NotifService : Notification saved (ID: 500)
+    deactivate DB
+    
+    == Send via Multiple Channels ==
+    
+    alt In-App Notification (Always)
+        NotifService -> WS : broadcast(recipient_id, notification)
+        activate WS
+        WS --> Recipient : Real-time notification
+        deactivate WS
+    end
+    
+    alt Email Notification (if enabled)
+        NotifService -> EmailService : sendEmail(recipient, notification)
+        activate EmailService
+        
+        EmailService -> EmailService : Build email template
+        EmailService -> EmailService : Queue email job
+        EmailService --> NotifService : Email queued
+        deactivate EmailService
+        
+        note right of EmailService
+            Email sent async
+            via queue worker
+        end note
+    end
+    
+    alt Push Notification (if enabled)
+        NotifService -> PushService : sendPush(recipient, notification)
+        activate PushService
+        
+        PushService -> DB : Get user's push tokens
+        activate DB
+        DB --> PushService : Device tokens
+        deactivate DB
+        
+        PushService -> PushService : Send to FCM/APNs
+        PushService --> NotifService : Push sent
+        deactivate PushService
+    end
+    
+end
+
+NotifService --> EventDispatcher : Notifications dispatched
+deactivate NotifService
+
+EventDispatcher --> API : Event handled
+deactivate EventDispatcher
+
+API --> UI : 201 Created
+deactivate API
+
+UI --> Trigger : "Action completed"
+deactivate UI
+
+== Recipient Views Notifications ==
+
+Recipient -> UI : Click notification bell
+activate UI
+
+UI -> API : GET /api/notifications?unread=true
+activate API
+
+API -> DB : Query unread notifications
+activate DB
+DB --> API : Notifications list
+deactivate DB
+
+API --> UI : 200 OK (notifications)
+deactivate API
+
+UI --> Recipient : Display notification dropdown
+deactivate UI
+
+== Mark as Read ==
+
+Recipient -> UI : Click on notification
+activate UI
+
+UI -> API : PUT /api/notifications/{id}/read
+activate API
+
+API -> NotifService : markAsRead(notification_id)
+activate NotifService
+
+NotifService -> DB : UPDATE notifications\nSET read = true, read_at = NOW()
+activate DB
+DB --> NotifService : Updated
+deactivate DB
+
+NotifService --> API : Marked as read
+deactivate NotifService
+
+API --> UI : 200 OK
+deactivate API
+
+UI -> UI : Navigate to action_url
+UI --> Recipient : Show relevant page
+deactivate UI
+
+== Bulk Operations ==
+
+Recipient -> UI : Click "Mark All as Read"
+activate UI
+
+UI -> API : PUT /api/notifications/mark-all-read
+activate API
+
+API -> NotifService : markAllAsRead(user_id)
+activate NotifService
+
+NotifService -> DB : UPDATE notifications\nWHERE user_id = X AND read = false
+activate DB
+DB --> NotifService : Bulk updated
+deactivate DB
+
+NotifService --> API : All marked
+deactivate NotifService
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Recipient : Update notification count to 0
+deactivate UI
+
+== Real-time Update (WebSocket) ==
+
+WS -> UI : New notification event
+activate UI
+activate WS
+
+note right of WS
+    WebSocket Message:
+    {
+        event: 'notification',
+        data: { ... }
+    }
+end note
+
+UI -> UI : Update notification badge
+UI -> UI : Show toast notification
+UI --> Recipient : Visual + audio alert
+deactivate UI
+deactivate WS
+
+== Delete Notifications ==
+
+Recipient -> UI : Click "Clear Notifications"
+activate UI
+
+UI -> API : DELETE /api/notifications
+activate API
+
+API -> NotifService : deleteUserNotifications(user_id)
+activate NotifService
+
+NotifService -> DB : DELETE FROM notifications\nWHERE user_id = X
+activate DB
+DB --> NotifService : Deleted
+deactivate DB
+
+NotifService --> API : Cleared
+deactivate NotifService
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Recipient : "Notifications cleared"
+deactivate UI
+
+@enduml
+

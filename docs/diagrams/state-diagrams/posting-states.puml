@@ -1,0 +1,149 @@
+@startuml Posting_States
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam state {
+    BackgroundColor<<draft>> LightGray
+    BackgroundColor<<active>> LightGreen
+    BackgroundColor<<inactive>> LightYellow
+    BackgroundColor<<closed>> Pink
+}
+
+title ICMS - Internship Posting Lifecycle States\nState Chart Diagram
+
+[*] --> Draft : Company admin\ncreates posting
+
+state "Draft" as Draft <<draft>> {
+    Draft : Entry: Create draft record
+    Draft : Do: Allow full editing
+    Draft : Do: No visibility to students
+    Draft : Exit: Validate all fields
+}
+
+Draft --> Open : Publish posting
+Draft --> Cancelled : Delete draft
+
+state "Open" as Open <<active>> {
+    Open : Entry: Make visible to students
+    Open : Entry: Index for search
+    Open : Entry: Notify matching students
+    Open : Entry: Notify coordinator
+    Open : Do: Accept applications
+    Open : Do: Allow minor edits
+    Open : Exit: Stop accepting applications
+    
+    state "Active" as Active {
+        Active : Applications < capacity
+        Active : Deadline not reached
+    }
+    
+    state "Near Deadline" as NearDeadline {
+        NearDeadline : < 7 days to deadline
+        NearDeadline : Send reminder notifications
+    }
+    
+    [*] --> Active
+    Active --> NearDeadline : 7 days before\ndeadline
+    NearDeadline --> [*]
+}
+
+Open --> Closed : Close posting
+Open --> Filled : All positions\nfilled
+Open --> Expired : Deadline\nreached
+
+state "Closed" as Closed <<closed>> {
+    Closed : Entry: Stop accepting applications
+    Closed : Entry: Notify pending applicants
+    Closed : Do: Review existing applications
+    Closed : Exit: Archive or reopen
+    
+    state "Manually Closed" as ManuallyClosed {
+        ManuallyClosed : Closed by company
+        ManuallyClosed : Reason recorded
+    }
+    
+    state "Temporarily Paused" as Paused {
+        Paused : Will reopen later
+        Paused : Keep applications
+    }
+    
+    [*] --> ManuallyClosed
+    ManuallyClosed --> Paused : Pause instead
+    Paused --> [*]
+}
+
+Closed --> Open : Reopen posting
+Closed --> Archived : Archive posting
+
+state "Filled" as Filled <<active>> {
+    Filled : Entry: All positions accepted
+    Filled : Entry: Auto-close posting
+    Filled : Entry: Notify remaining applicants
+    Filled : Do: Track internship progress
+    Filled : Exit: ---
+}
+
+state "Expired" as Expired <<inactive>> {
+    Expired : Entry: Deadline passed
+    Expired : Entry: Auto-close applications
+    Expired : Entry: Notify company admin
+    Expired : Do: Allow extension request
+    Expired : Exit: ---
+}
+
+Expired --> Open : Extend deadline
+Expired --> Archived : Archive
+
+state "Cancelled" as Cancelled <<closed>> {
+    Cancelled : Entry: Remove from listings
+    Cancelled : Entry: Notify all applicants
+    Cancelled : Entry: Log cancellation reason
+    Cancelled : Do: Soft delete
+    Cancelled : Exit: ---
+}
+
+state "Archived" as Archived <<draft>> {
+    Archived : Entry: Remove from active search
+    Archived : Do: Keep for records/analytics
+    Archived : Exit: ---
+}
+
+Filled --> Archived : Internship\ncompleted
+Cancelled --> [*] : Permanently\nremoved
+Archived --> [*] : Historical\nrecord
+
+note right of Open
+    **While Open:**
+    - Visible in search results
+    - Students can apply
+    - Real-time application count
+    - Supervisor can be changed
+    - Minor edits allowed
+end note
+
+note left of Closed
+    **Close Reasons:**
+    - Position no longer available
+    - Reviewing current applications
+    - Budget constraints
+    - Seasonal pause
+end note
+
+note bottom of Filled
+    **When Filled:**
+    - All positions have accepted interns
+    - Remaining applications auto-rejected
+    - Company can start onboarding
+end note
+
+note right of Expired
+    **Expiration Rules:**
+    - Based on application_deadline field
+    - Company can extend deadline
+    - Auto-archived after 30 days
+end note
+
+' Transition guards
+Open -[dotted]-> Closed : [applicants == 0]
+
+@enduml
+

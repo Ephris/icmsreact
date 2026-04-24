@@ -1,0 +1,286 @@
+@startuml Approval_Process
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam sequenceMessageAlign center
+
+title ICMS - Multi-Level Approval Process\nSequence Diagram
+
+actor "Student" as Student
+actor "Faculty Advisor" as Advisor
+actor "Company Supervisor" as Supervisor
+actor "Coordinator" as Coordinator
+participant "Browser\n(React)" as UI
+participant "API\nController" as API
+participant "Form\nService" as FormService
+participant "Approval\nService" as ApprovalService
+database "Database" as DB
+participant "Notification\nService" as NotifService
+
+== Student Submits Form ==
+
+Student -> UI : Navigate to Forms
+activate UI
+UI --> Student : Display form submission page
+Student -> UI : Upload document\nSelect form type
+UI --> Student : Form ready for submission
+Student -> UI : Click "Submit Form"
+
+UI -> API : POST /api/forms
+activate API
+note right of API
+    Request:
+    {
+        type: "progress_report",
+        title: "Week 4 Report",
+        file: attachment
+    }
+end note
+
+API -> FormService : submitForm(data)
+activate FormService
+
+FormService -> DB : BEGIN TRANSACTION
+activate DB
+
+FormService -> DB : INSERT INTO forms (status = 'pending')
+DB --> FormService : Form created (ID: 100)
+
+FormService -> DB : Store uploaded file
+DB --> FormService : File stored
+
+FormService -> DB : COMMIT TRANSACTION
+deactivate DB
+
+' Determine Approval Chain
+FormService -> ApprovalService : initiateApprovalChain(form_id)
+activate ApprovalService
+
+ApprovalService -> DB : Get student's advisor
+activate DB
+DB --> ApprovalService : Advisor info (user_id: 50)
+deactivate DB
+
+ApprovalService -> DB : Get student's supervisor
+activate DB
+DB --> ApprovalService : Supervisor info (user_id: 75)
+deactivate DB
+
+ApprovalService -> DB : Create approval chain record
+activate DB
+note right of DB
+    approval_chain:
+    Level 1: Advisor (pending)
+    Level 2: Supervisor (waiting)
+end note
+DB --> ApprovalService : Chain created
+deactivate DB
+
+ApprovalService --> FormService : Chain initiated
+deactivate ApprovalService
+
+' Send to Advisor
+FormService -> NotifService : notifyAdvisor(advisor_id, form_id)
+activate NotifService
+
+NotifService -> DB : Create notification
+activate DB
+DB --> NotifService : Notification saved
+deactivate DB
+
+NotifService --> Advisor : "New Form Pending Review"
+deactivate NotifService
+
+FormService --> API : Form submitted
+deactivate FormService
+
+API --> UI : 201 Created
+deactivate API
+
+UI --> Student : "Form submitted!\nAwaiting advisor approval."
+deactivate UI
+
+== Level 1: Advisor Approval ==
+
+Advisor -> UI : Click notification
+activate UI
+
+UI -> API : GET /api/forms/{id}
+activate API
+
+API -> DB : Get form with student info
+activate DB
+DB --> API : Form data
+deactivate DB
+
+API --> UI : 200 OK (form details)
+deactivate API
+
+UI --> Advisor : Display form for review
+Advisor -> UI : Review document\nAdd comments
+Advisor -> UI : Click "Approve"
+
+UI -> API : PUT /api/forms/{id}/approve
+activate API
+note right of API
+    Request:
+    {
+        level: 1,
+        action: "approve",
+        comments: "Good progress"
+    }
+end note
+
+API -> ApprovalService : processApproval(form_id, level, action)
+activate ApprovalService
+
+ApprovalService -> DB : BEGIN TRANSACTION
+activate DB
+
+ApprovalService -> DB : UPDATE approval_chain\nLevel 1 = 'approved'
+DB --> ApprovalService : Updated
+
+ApprovalService -> DB : UPDATE forms\nstatus = 'advisor_approved'
+DB --> ApprovalService : Updated
+
+ApprovalService -> DB : Record approval timestamp
+DB --> ApprovalService : Recorded
+
+ApprovalService -> DB : COMMIT TRANSACTION
+deactivate DB
+
+' Move to Level 2
+ApprovalService -> DB : UPDATE approval_chain\nLevel 2 = 'pending'
+activate DB
+DB --> ApprovalService : Ready for supervisor
+deactivate DB
+
+ApprovalService -> NotifService : notifySupervisor(supervisor_id, form_id)
+activate NotifService
+
+NotifService -> DB : Create notification
+activate DB
+DB --> NotifService : Saved
+deactivate DB
+
+NotifService --> Supervisor : "Form Pending Your Approval"
+deactivate NotifService
+
+ApprovalService -> NotifService : notifyStudent(student_id, "Advisor approved")
+activate NotifService
+NotifService --> Student : "Advisor approved your form"
+deactivate NotifService
+
+ApprovalService --> API : Level 1 approved
+deactivate ApprovalService
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Advisor : "Form approved.\nSent to supervisor."
+deactivate UI
+
+== Level 2: Supervisor Approval ==
+
+Supervisor -> UI : Click notification
+activate UI
+
+UI -> API : GET /api/forms/{id}
+activate API
+
+API -> DB : Get form with history
+activate DB
+DB --> API : Form with advisor approval
+deactivate DB
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Supervisor : Display form with advisor comments
+Supervisor -> UI : Review form\nAdd performance feedback
+Supervisor -> UI : Click "Approve"
+
+UI -> API : PUT /api/forms/{id}/approve
+activate API
+note right of API
+    Request:
+    {
+        level: 2,
+        action: "approve",
+        feedback: "Excellent work"
+    }
+end note
+
+API -> ApprovalService : processApproval(form_id, 2, "approve")
+activate ApprovalService
+
+ApprovalService -> DB : BEGIN TRANSACTION
+activate DB
+
+ApprovalService -> DB : UPDATE approval_chain\nLevel 2 = 'approved'
+DB --> ApprovalService : Updated
+
+ApprovalService -> DB : UPDATE forms\nstatus = 'approved'
+DB --> ApprovalService : Fully approved
+
+ApprovalService -> DB : COMMIT TRANSACTION
+deactivate DB
+
+' Final notifications
+ApprovalService -> NotifService : notifyAllParties(form_id)
+activate NotifService
+
+NotifService --> Student : "Form Fully Approved!"
+NotifService --> Advisor : "Form fully approved"
+NotifService --> Coordinator : "Form completed approval"
+
+deactivate NotifService
+
+ApprovalService --> API : Fully approved
+deactivate ApprovalService
+
+API --> UI : 200 OK (status: approved)
+deactivate API
+
+UI --> Supervisor : "Form fully approved"
+deactivate UI
+
+== Rejection Scenario ==
+
+Advisor -> UI : Click "Request Revision"
+activate UI
+
+UI -> API : PUT /api/forms/{id}/reject
+activate API
+note right of API
+    Request:
+    {
+        level: 1,
+        action: "revision",
+        reason: "Missing sections"
+    }
+end note
+
+API -> ApprovalService : processRejection(form_id, 1)
+activate ApprovalService
+
+ApprovalService -> DB : UPDATE forms\nstatus = 'revision_required'
+activate DB
+DB --> ApprovalService : Updated
+deactivate DB
+
+ApprovalService -> NotifService : notifyRevisionRequired(student_id)
+activate NotifService
+NotifService --> Student : "Revision Required"
+deactivate NotifService
+
+ApprovalService --> API : Revision requested
+deactivate ApprovalService
+
+API --> UI : 200 OK
+deactivate API
+
+UI --> Advisor : "Revision request sent"
+deactivate UI
+
+@enduml
+

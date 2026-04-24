@@ -1,0 +1,162 @@
+@startuml Company_Posting_Flow
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activityShape roundedBox
+
+title ICMS - Company Internship Posting Flow\nActivity Diagram
+
+|Company Admin|
+start
+
+:Login to ICMS;
+
+:Navigate to Dashboard;
+
+:Click "Create New Posting";
+
+|System|
+:Display Posting Form;
+
+|Company Admin|
+:Fill Basic Information;
+note right
+    - Title
+    - Description
+    - Industry
+    - Location
+end note
+
+:Set Internship Details;
+note right
+    - Type (Full-time/Part-time)
+    - Work Type (Remote/On-site/Hybrid)
+    - Start Date
+    - End Date
+    - Salary Range
+end note
+
+:Define Requirements;
+note right
+    - Required Skills
+    - Experience Level
+    - Minimum GPA
+    - Qualifications
+end note
+
+:Add Application Instructions;
+
+:Set Application Deadline;
+
+:Select/Assign Supervisor;
+
+if (Supervisor Available?) then (yes)
+    :Assign Supervisor to Posting;
+else (no)
+    :Create Without Supervisor;
+    note right
+        Supervisor can be
+        assigned later
+    end note
+endif
+
+:Review Posting Details;
+
+if (Save as Draft?) then (yes)
+    |System|
+    :Save Posting as Draft;
+    :Status = "Draft";
+    
+    |Company Admin|
+    :Posting Saved to Drafts;
+    
+    if (Edit Later?) then (yes)
+        :Access Drafts;
+        :Edit Posting;
+    endif
+else (no)
+    if (All Fields Valid?) then (yes)
+        :Click "Publish Posting";
+        
+        |System|
+        :Validate All Fields;
+        
+        if (Validation Passed?) then (yes)
+            :Save Posting;
+            :Set Status = "Open";
+            :Record Created Date;
+            :Index for Search;
+            
+            :Send Notification to Coordinator;
+            note right
+                Coordinator may review
+                new postings
+            end note
+            
+            :Notify Matching Students;
+            note right
+                Based on:
+                - Skills match
+                - Location preference
+                - GPA requirements
+            end note
+            
+            |Company Admin|
+            :Posting Published Successfully!;
+            #LightGreen:View Published Posting;
+            
+            :Monitor Applications;
+            
+            fork
+                :View Application Count;
+            fork again
+                :Review Individual Applications;
+            fork again
+                :Update Posting if Needed;
+            end fork
+            
+        else (no)
+            |Company Admin|
+            :View Validation Errors;
+            :Correct Information;
+        endif
+    else (no)
+        :Complete Missing Fields;
+    endif
+endif
+
+' === Posting Management Section ===
+|Company Admin|
+:Manage Published Posting;
+
+if (Edit Required?) then (yes)
+    :Edit Posting Details;
+    
+    |System|
+    :Update Posting;
+    :Notify Applicants of Changes;
+endif
+
+if (Close Posting?) then (yes)
+    :Select Close Reason;
+    note right
+        - Position Filled
+        - Deadline Reached
+        - Posting Cancelled
+    end note
+    
+    |System|
+    :Set Status = "Closed";
+    :Stop Accepting Applications;
+    :Notify Pending Applicants;
+endif
+
+if (Delete Posting?) then (yes)
+    |System|
+    :Soft Delete Posting;
+    :Archive Data;
+endif
+
+stop
+
+@enduml
+

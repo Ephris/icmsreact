@@ -1,0 +1,346 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T12:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" type="device">
+  <diagram name="ICMS Apply for Internship Activity Diagram" id="apply-internship-activity-diagram">
+    <mxGraphModel dx="1100" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" background="#000000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="title" value="ICMS - Apply for Internship (Student) Activity Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="164" y="20" width="500" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- FRAME -->
+        <mxCell id="frame" value="ICMS" style="shape=umlFrame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#DC143C;fillColor=none;fontStyle=1;fontSize=12;fontColor=#FFFFFF;width=60;height=25;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="747" height="1080" as="geometry" />
+        </mxCell>
+
+        <!-- INITIAL STATE -->
+        <mxCell id="initial" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeColor=#DC143C;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="399" y="90" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-init" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="120" as="sourcePoint" />
+            <mxPoint x="414" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Browse Postings -->
+        <mxCell id="state-browse" value="Browse Available Postings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="324" y="145" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="180" as="sourcePoint" />
+            <mxPoint x="414" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Select Posting -->
+        <mxCell id="state-select" value="Select Posting to Apply" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="324" y="205" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="240" as="sourcePoint" />
+            <mxPoint x="414" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Click Apply -->
+        <mxCell id="state-click-apply" value="Click Apply Button" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="324" y="265" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="300" as="sourcePoint" />
+            <mxPoint x="414" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DECISION 1: Has Application Letter? -->
+        <mxCell id="decision-letter" value="Has Application&#xa;Letter?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="325" width="110" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- NO - No letter -->
+        <mxCell id="arr-no-letter" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-letter">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-no-letter" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="340" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-error-letter" value="Error: Contact&#xa;Coordinator for Letter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="342" width="110" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- YES - Has letter -->
+        <mxCell id="arr-yes-letter" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-letter">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-yes-letter" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="397" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DECISION 2: Posting Open? -->
+        <mxCell id="decision-open" value="Posting&#xa;Open?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="420" width="110" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- NO - Posting closed -->
+        <mxCell id="arr-no-open" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-open">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-no-open" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="435" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-error-open" value="Error: Posting&#xa;Not Available" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="437" width="110" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- YES - Posting open -->
+        <mxCell id="arr-yes-open" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-open">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-yes-open" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="492" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DECISION 3: Deadline Passed? -->
+        <mxCell id="decision-deadline" value="Deadline&#xa;Passed?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="515" width="110" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- YES - Deadline passed -->
+        <mxCell id="arr-yes-deadline" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-deadline">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-yes-deadline" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="530" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-error-deadline" value="Error: Deadline&#xa;Has Passed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="530" width="110" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- NO - Deadline not passed -->
+        <mxCell id="arr-no-deadline" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-deadline">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-no-deadline" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="587" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DECISION 4: Already Applied? -->
+        <mxCell id="decision-applied" value="Already&#xa;Applied?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="610" width="110" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- YES - Already applied -->
+        <mxCell id="arr-yes-applied" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-applied">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="645" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-yes-applied" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="625" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-error-applied" value="Error: Already&#xa;Applied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="625" width="110" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- NO - Not applied -->
+        <mxCell id="arr-no-applied" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-applied">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="705" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-no-applied" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="682" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DECISION 5: Meets CGPA? -->
+        <mxCell id="decision-cgpa" value="Meets CGPA&#xa;Requirement?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="705" width="110" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- NO - CGPA not met -->
+        <mxCell id="arr-no-cgpa" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-cgpa">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-no-cgpa" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="720" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-error-cgpa" value="Error: CGPA&#xa;Not Met" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="720" width="110" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- YES - CGPA met -->
+        <mxCell id="arr-yes-cgpa" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-cgpa">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-yes-cgpa" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="777" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- STATE: Display Application Form -->
+        <mxCell id="state-form" value="Display Application Form" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="324" y="800" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="835" as="sourcePoint" />
+            <mxPoint x="414" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Upload Resume -->
+        <mxCell id="state-resume" value="Upload Resume (PDF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="324" y="860" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-5" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="895" as="sourcePoint" />
+            <mxPoint x="414" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Fill Optional Fields -->
+        <mxCell id="state-optional" value="Fill Optional: Cover Letter,&#xa;Portfolio, Skills, Certifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="314" y="920" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-6" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="960" as="sourcePoint" />
+            <mxPoint x="414" y="985" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Submit Application -->
+        <mxCell id="state-submit" value="Submit Application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="324" y="985" width="180" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-7" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1020" as="sourcePoint" />
+            <mxPoint x="414" y="1045" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Create Application Record -->
+        <mxCell id="state-create" value="Create Application Record&#xa;(status: pending)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="314" y="1045" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-8" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="state-create">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1105" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Merge errors to browse -->
+        <mxCell id="arr-err-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="382" as="sourcePoint" />
+            <mxPoint x="135" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-err-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="477" as="sourcePoint" />
+            <mxPoint x="135" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-err-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="695" y="570" as="sourcePoint" />
+            <mxPoint x="695" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-err-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="695" y="665" as="sourcePoint" />
+            <mxPoint x="695" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-err-5" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="695" y="760" as="sourcePoint" />
+            <mxPoint x="695" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Horizontal merge line -->
+        <mxCell id="merge-line" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="1100" as="sourcePoint" />
+            <mxPoint x="695" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Notify Company Admin -->
+        <mxCell id="state-notify" value="Notify Company Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="554" y="1045" width="150" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-notify" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="state-create" target="state-notify">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-notify-down" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="629" y="1080" as="sourcePoint" />
+            <mxPoint x="629" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow to final -->
+        <mxCell id="arr-to-final" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1100" as="sourcePoint" />
+            <mxPoint x="414" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- FINAL STATE -->
+        <mxCell id="final-outer" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeColor=#DC143C;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="399" y="1120" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="final-inner" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#DC143C;strokeColor=#DC143C;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="406" y="1127" width="16" height="16" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

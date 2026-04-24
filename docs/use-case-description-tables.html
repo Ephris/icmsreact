@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ICMS - Use Case Description Tables</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+th, td { border: 1px solid black; padding: 8px; text-align: left; vertical-align: top; }
+th { background-color: #f0f0f0; }
+h1, h2 { text-align: center; }
+h2 { margin-top: 40px; color: #333; }
+.nested-table { width: 100%; margin: 0; }
+.nested-table th, .nested-table td { border: 1px solid #666; padding: 5px; }
+.nested-table th { background-color: #e0e0e0; }
+.page-break { page-break-after: always; }
+</style>
+</head>
+<body>
+
+<h1>ICMS - Use Case Description Tables</h1>
+<h2>Internship and Career Management System</h2>
+<p><strong>Document Version:</strong> 1.0</p>
+<p><strong>Date:</strong> January 2026</p>
+<p><strong>Based on:</strong> use-case-diagram.drawio</p>
+
+<hr>
+
+<h2>Table 1: Login Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Login</td></tr>
+<tr><td><strong>ID</strong></td><td>UC01</td></tr>
+<tr><td><strong>Actors</strong></td><td>Admin, Student, Faculty Advisor, Company Supervisor, Coordinator, Company Admin, Department Head</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow a person with an account to sign in so they can access their personal dashboard and actions.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>The sign-in page loads and the person has valid credentials.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>The person is signed in and shown the correct home/dashboard for their role.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open the login page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show the login form with email and password fields</td></tr>
+<tr><td>3</td><td>Enter email and password</td><td>—</td></tr>
+<tr><td>4</td><td>Click the login button</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Check credentials against database</td></tr>
+<tr><td>6</td><td>—</td><td>If valid, create session and navigate to appropriate dashboard based on role</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If credentials are wrong, show error message and let the person try again.<br>6.1 If account is inactive/deactivated, show message "Your account has been deactivated."</td></tr>
+<tr><td><strong>Include</strong></td><td>None</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Display clear error messages. Role-based redirect to appropriate dashboard.</td></tr>
+</table>
+
+<h2>Table 2: Logout Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Logout</td></tr>
+<tr><td><strong>ID</strong></td><td>UC02</td></tr>
+<tr><td><strong>Actors</strong></td><td>All signed-in users</td></tr>
+<tr><td><strong>Description</strong></td><td>To disable the permission of accessing the account and end the current session.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>The user must be successfully logged in to the system.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>The permission of accessing that account is blocked until the user logs in again.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Click on logout button from account menu</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Invalidate the current session</td></tr>
+<tr><td>3</td><td>—</td><td>Regenerate CSRF token</td></tr>
+<tr><td>4</td><td>—</td><td>Redirect to home page</td></tr>
+<tr><td>5</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>1.1 If user has unsaved work, system may warn about unsaved changes.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Session is completely cleared on logout.</td></tr>
+</table>
+
+<h2>Table 3: Manage Profile Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Profile</td></tr>
+<tr><td><strong>ID</strong></td><td>UC03</td></tr>
+<tr><td><strong>Actors</strong></td><td>Student, Faculty Advisor, Department Head, Company Supervisor, Company Admin, Coordinator, Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>View and update personal information, upload a photo or documents, and change profile settings.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>User is signed in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Profile information and uploaded files are saved and visible on the profile page.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Profile page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load current profile data from database</td></tr>
+<tr><td>3</td><td>Edit fields or upload photo/resume</td><td>—</td></tr>
+<tr><td>4</td><td>Click Save or Update</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate inputs and files</td></tr>
+<tr><td>6</td><td>—</td><td>Save changes and show confirmation message</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If image is invalid or too large, show error with file requirements.<br>5.2 If required fields missing, highlight fields and prevent save.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Profile fields vary by role. Students can upload resume (PDF, max 2MB) and profile image.</td></tr>
+</table>
+
+<h2>Table 4: View Notifications Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Notifications</td></tr>
+<tr><td><strong>ID</strong></td><td>UC04</td></tr>
+<tr><td><strong>Actors</strong></td><td>All signed-in users</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow a person to see messages and alerts, mark them as read, or open the related page.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>User is signed in and notifications are generated by system events.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Notifications display and are marked or archived as the person chooses.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Click notifications icon or open notifications page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load recent and unread notifications ordered by date</td></tr>
+<tr><td>3</td><td>View list and click an item to open related page</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Open related content or update notification status</td></tr>
+<tr><td>5</td><td>Mark items as read or archive as desired</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Refresh unread counts and show confirmation</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>4.1 If notification points to deleted content, show message explaining unavailability.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Provide bulk "Mark All as Read" action. Real-time updates via WebSocket.</td></tr>
+</table>
+
+<h2>Table 5: Chat Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Chat</td></tr>
+<tr><td><strong>ID</strong></td><td>UC05</td></tr>
+<tr><td><strong>Actors</strong></td><td>Student, Faculty Advisor, Supervisor, Company Admin, Coordinator, Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow real-time conversations between authorized participants with file sharing and indicators.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Both sender and recipient are signed in and allowed to connect.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Message is delivered and visible to recipients; attachments are accessible.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open chat or select a conversation</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load conversation history and participants</td></tr>
+<tr><td>3</td><td>Type message or attach file</td><td>—</td></tr>
+<tr><td>4</td><td>Click Send</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate and store message and attachments</td></tr>
+<tr><td>6</td><td>—</td><td>Broadcast message to recipients and update indicators</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>3.1 If recipient is offline, queue delivery and show pending status.<br>5.1 If rate limit exceeded, block message and show warning.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Features: message editing, deletion, reply-to, file attachments, typing indicators, read receipts.</td></tr>
+</table>
+
+<h2>Table 6: Browse Postings Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Browse Postings</td></tr>
+<tr><td><strong>ID</strong></td><td>UC06</td></tr>
+<tr><td><strong>Actors</strong></td><td>Student</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow students to view available internship and career opportunities with filtering options.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Student is logged in and profile is complete.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Student can view posting details and identify suitable opportunities.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Click "Postings" in navigation</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Query all open postings (status='open', deadline not passed)</td></tr>
+<tr><td>3</td><td>—</td><td>Display list with title, company, location, type, deadline</td></tr>
+<tr><td>4</td><td>Apply filters or search keywords</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Filter and refresh results</td></tr>
+<tr><td>6</td><td>Sort by title, date, or deadline</td><td>—</td></tr>
+<tr><td>7</td><td>Click on a posting to view details</td><td>—</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>2.1 If student has completed application, show empty list with analytics message.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Pagination: 10 items per page. Postings include salary, skills, min_gpa requirements.</td></tr>
+</table>
+
+<h2>Table 7: Apply for Internship Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Apply for Internship</td></tr>
+<tr><td><strong>ID</strong></td><td>UC07</td></tr>
+<tr><td><strong>Actors</strong></td><td>Student</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow a student to apply for an open posting by submitting required information and documents.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Student is signed in, posting is open, student has application letter from coordinator.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Application is recorded with 'pending' status; company admin is notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open postings list</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show available postings</td></tr>
+<tr><td>3</td><td>Select a posting to apply to</td><td>—</td></tr>
+<tr><td>4</td><td>Click Apply and complete the form</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Display application form and validate required fields</td></tr>
+<tr><td>6</td><td>Attach required documents and submit</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Validate files, check CGPA requirement, check deadline</td></tr>
+<tr><td>8</td><td>—</td><td>Save application and show confirmation</td></tr>
+<tr><td>9</td><td>—</td><td>Notify company admin about new application</td></tr>
+<tr><td>10</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>4.1 If no application letter exists, block with error message.<br>7.1 If posting deadline passed, show error.<br>7.2 If already applied, show error.<br>7.3 If CGPA below minimum, show error.</td></tr>
+<tr><td><strong>Include</strong></td><td>Browse Postings, Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Required: resume (PDF, max 2MB). Optional: cover letter, portfolio URL, skills.</td></tr>
+</table>
+
+<h2>Table 8: Manage Application Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Application</td></tr>
+<tr><td><strong>ID</strong></td><td>UC08</td></tr>
+<tr><td><strong>Actors</strong></td><td>Student</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow student to view application status, accept/decline offers, and withdraw applications.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Student is signed in and has submitted at least one application.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Application status is updated accordingly; relevant parties are notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Applications page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all applications with status, dates, feedback</td></tr>
+<tr><td>3</td><td>Select an application to view details</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Display full application details</td></tr>
+<tr><td>5</td><td>Choose action: Accept Offer or Withdraw</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Validate action and update status</td></tr>
+<tr><td>7</td><td>—</td><td>Notify relevant parties</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If offer has expired, show error.<br>5.2 If student already has accepted application, show error.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Student can only have ONE accepted application at a time.</td></tr>
+</table>
+
+<h2>Table 9: View Forms Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Forms</td></tr>
+<tr><td><strong>ID</strong></td><td>UC09</td></tr>
+<tr><td><strong>Actors</strong></td><td>Student</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow student to view internship-related forms, check status and comments.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Student is signed in and has forms assigned.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Student can view form details and download attachments.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Forms page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all forms with advisor info and status</td></tr>
+<tr><td>3</td><td>Filter by type or search by title</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Filter and display results</td></tr>
+<tr><td>5</td><td>Click on a form to view details</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Display form details and attachment</td></tr>
+<tr><td>7</td><td>Download form attachment if needed</td><td>—</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>2.1 If no forms exist, show empty state with message.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Form types: progress_report, evaluation, attendance, completion. Status: pending, approved, rejected.</td></tr>
+</table>
+
+<h2>Table 10: Manage Postings Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Postings</td></tr>
+<tr><td><strong>ID</strong></td><td>UC10</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Admin, Company Supervisor</td></tr>
+<tr><td><strong>Description</strong></td><td>Allow creation, editing, and publication of job or internship postings with details.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>User has posting rights and company profile is set up.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Posting is saved and published or saved as draft; applicants can view if published.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open postings management area</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show existing postings with status</td></tr>
+<tr><td>3</td><td>Click Create or Edit posting</td><td>—</td></tr>
+<tr><td>4</td><td>Enter job details: title, description, type, industry, location</td><td>—</td></tr>
+<tr><td>5</td><td>Enter requirements: skills, min_gpa, deadline</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Validate required fields and dates</td></tr>
+<tr><td>7</td><td>Save or publish the posting</td><td>—</td></tr>
+<tr><td>8</td><td>—</td><td>Save posting; if published, make visible in listings</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>6.1 If deadline is in the past, show warning and prevent publish.<br>7.1 If closing with pending applications, show warning.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Soft delete supported with restore option.</td></tr>
+</table>
+
+<h2>Table 11: Manage Supervisors Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Supervisors</td></tr>
+<tr><td><strong>ID</strong></td><td>UC11</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>Add, edit, or remove supervisors for the company and assign them to students.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Company admin is signed in and company profile exists.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Supervisor records and assignments are updated; notifications are sent.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open company supervisors page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show current supervisors with assignment counts</td></tr>
+<tr><td>3</td><td>Click to create or edit a supervisor</td><td>—</td></tr>
+<tr><td>4</td><td>Fill details: username, email, password, name, phone</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate capacity and assignment rules</td></tr>
+<tr><td>6</td><td>—</td><td>Save supervisor and notify involved people</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>4.1 If supervisor is at capacity, block assignment and suggest alternatives.<br>4.2 If email already exists, show error.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Keep assignment limits visible when assigning. Soft delete supported.</td></tr>
+</table>
+
+<h2>Table 12: Process Applications Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Process Applications</td></tr>
+<tr><td><strong>ID</strong></td><td>UC12</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>Review submitted applications, accept or reject them, and notify students.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Posting has received applications and company admin is logged in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Application status is updated; student and relevant staff are notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Applications page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Display applications with student info, posting, status</td></tr>
+<tr><td>3</td><td>Click on application to review</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Show student profile, resume, cover letter, skills</td></tr>
+<tr><td>5</td><td>Evaluate and choose: Approve or Reject</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Validate and update status</td></tr>
+<tr><td>7</td><td>—</td><td>If approved: set offer_expiration (120 hours), notify student</td></tr>
+<tr><td>8</td><td>—</td><td>If rejected: update status and notify student</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If application already processed, show current status.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Approved status includes 120-hour offer expiration for student to accept.</td></tr>
+</table>
+
+<h2>Table 13: Assign Supervisor Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Assign Supervisor</td></tr>
+<tr><td><strong>ID</strong></td><td>UC13</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>Assign a company supervisor to a student/posting after application acceptance.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Application is accepted, supervisors are available.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Supervisor assignment is created; supervisor and student are notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open supervisor assignments page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show current assignments and available supervisors</td></tr>
+<tr><td>3</td><td>Select student/posting and target supervisor</td><td>—</td></tr>
+<tr><td>4</td><td>Confirm assignment</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate supervisor availability</td></tr>
+<tr><td>6</td><td>—</td><td>Create assignment record with status='active'</td></tr>
+<tr><td>7</td><td>—</td><td>Notify supervisor and student</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If supervisor at max capacity, show error and suggest alternatives.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Supports edit and delete of assignments.</td></tr>
+</table>
+
+<h2>Table 14: View Assigned Students (Supervisor) Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Assigned Students</td></tr>
+<tr><td><strong>ID</strong></td><td>UC14</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Supervisor</td></tr>
+<tr><td><strong>Description</strong></td><td>View and monitor all students assigned for internship supervision.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Supervisor is logged in and has assigned students.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Supervisor can view student details and internship progress.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Students page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load active and completed student assignments</td></tr>
+<tr><td>3</td><td>Search or filter by name, year, status</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Display filtered results with sorting</td></tr>
+<tr><td>5</td><td>Click on student to view details</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Show name, email, phone, university ID, department, CGPA</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>2.1 If no students assigned, show empty state message.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Dashboard shows students with ending internships (≤5 days remaining).</td></tr>
+</table>
+
+<h2>Table 15: Approve Forms Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Approve Forms</td></tr>
+<tr><td><strong>ID</strong></td><td>UC15</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Supervisor</td></tr>
+<tr><td><strong>Description</strong></td><td>Review and approve/reject forms submitted by faculty advisors for assigned students.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Form is submitted by advisor and supervisor is assigned to the student.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Form status is updated and submitter is notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Forms page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load forms assigned to supervisor with status</td></tr>
+<tr><td>3</td><td>Click on form to review</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Display form details, file attachment, advisor comments</td></tr>
+<tr><td>5</td><td>Review content and add comments</td><td>—</td></tr>
+<tr><td>6</td><td>Click Approve or Reject</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Update form status and notify advisor/student</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>6.1 If rejecting, prompt for rejection reason.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Form approval marks completion of internship documentation.</td></tr>
+</table>
+
+<h2>Table 16: Create Analytics Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Create Analytics</td></tr>
+<tr><td><strong>ID</strong></td><td>UC16</td></tr>
+<tr><td><strong>Actors</strong></td><td>Company Supervisor</td></tr>
+<tr><td><strong>Description</strong></td><td>Submit performance evaluation and analytics for students who completed their internship.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Student's internship period has ended or is ending (≤5 days).</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Analytics record is created; application status changes to 'completed'.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Analytics page and select student</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show student info and evaluation form</td></tr>
+<tr><td>3</td><td>Fill evaluation: comments, upload form file</td><td>—</td></tr>
+<tr><td>4</td><td>Submit analytics</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate form completeness</td></tr>
+<tr><td>6</td><td>—</td><td>Create InternshipAnalytics record</td></tr>
+<tr><td>7</td><td>—</td><td>Update application status to 'completed'</td></tr>
+<tr><td>8</td><td>—</td><td>Notify student, advisor, and department head</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>3.1 If required fields missing, highlight and prevent submission.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>After submission, advisor and dept_head add their scores for final_score calculation.</td></tr>
+</table>
+
+<h2>Table 17: View Assigned Students (Advisor) Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Assigned Students</td></tr>
+<tr><td><strong>ID</strong></td><td>UC17</td></tr>
+<tr><td><strong>Actors</strong></td><td>Faculty Advisor</td></tr>
+<tr><td><strong>Description</strong></td><td>View and monitor all students assigned for academic guidance during internship.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Advisor is logged in and has assigned students via AdvisorAssignment.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Advisor can view student details and internship status.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Students page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load students with advisor assignment</td></tr>
+<tr><td>3</td><td>Search by name or filter</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Display filtered results with pagination</td></tr>
+<tr><td>5</td><td>Click on student to view details</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Show name, university ID, CGPA, year, applications</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>2.1 If no students assigned, show empty state with message.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Dashboard shows students with ending internships and completed count.</td></tr>
+</table>
+
+<h2>Table 18: Manage Forms Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Forms</td></tr>
+<tr><td><strong>ID</strong></td><td>UC18</td></tr>
+<tr><td><strong>Actors</strong></td><td>Faculty Advisor</td></tr>
+<tr><td><strong>Description</strong></td><td>Create, edit, and submit internship forms (progress reports, evaluations) for students.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Advisor is signed in and has students with accepted applications.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Form is created/updated and submitted for supervisor approval.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Forms page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all forms created by advisor</td></tr>
+<tr><td>3</td><td>Click Create Form</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Show form with student dropdown</td></tr>
+<tr><td>5</td><td>Select student, enter title, type, upload file</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Validate inputs and file</td></tr>
+<tr><td>7</td><td>Submit form</td><td>—</td></tr>
+<tr><td>8</td><td>—</td><td>Create form record with status='pending'</td></tr>
+<tr><td>9</td><td>—</td><td>Notify student and supervisor</td></tr>
+<tr><td>10</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>4.1 If no eligible students, show message.<br>6.1 If file invalid, show error with requirements.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Form types: progress_report, evaluation, attendance, completion. Soft delete supported.</td></tr>
+</table>
+
+<h2>Table 19: Provide Feedback Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Provide Feedback</td></tr>
+<tr><td><strong>ID</strong></td><td>UC19</td></tr>
+<tr><td><strong>Actors</strong></td><td>Faculty Advisor</td></tr>
+<tr><td><strong>Description</strong></td><td>Provide feedback and ratings on student applications and internship progress.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Advisor is signed in and student has accepted application.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Feedback is recorded and student is notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Applications page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load applications of assigned students</td></tr>
+<tr><td>3</td><td>Select application to review</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Show student info and existing feedback</td></tr>
+<tr><td>5</td><td>Enter feedback content and rating (1-5)</td><td>—</td></tr>
+<tr><td>6</td><td>Submit feedback</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Save or update feedback record</td></tr>
+<tr><td>8</td><td>—</td><td>Notify student about new feedback</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If feedback exists, load for editing.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Feedback: content (max 1000 chars), rating (1-5). Supports create, edit, delete.</td></tr>
+</table>
+
+<h2>Table 20: View Analytics Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Analytics</td></tr>
+<tr><td><strong>ID</strong></td><td>UC20</td></tr>
+<tr><td><strong>Actors</strong></td><td>Faculty Advisor, Department Head</td></tr>
+<tr><td><strong>Description</strong></td><td>View completed internship analytics and provide academic evaluation score.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>User is signed in, student has completed internship with analytics record.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Analytics is viewed and optionally scored.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Analytics page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load analytics for students with completed internships</td></tr>
+<tr><td>3</td><td>Select analytics record to view</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Display posting info, dates, duration, supervisor comments</td></tr>
+<tr><td>5</td><td>Enter evaluation score (advisor_score or dept_head_score)</td><td>—</td></tr>
+<tr><td>6</td><td>Submit score</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Update analytics record, recalculate final_score</td></tr>
+<tr><td>8</td><td>—</td><td>Notify student of updated evaluation</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If score already submitted, show existing score.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Advisors set advisor_score, Dept Heads set dept_head_score. Final score calculated when both present.</td></tr>
+</table>
+
+<h2>Table 21: Manage Application Letters Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Application Letters</td></tr>
+<tr><td><strong>ID</strong></td><td>UC21</td></tr>
+<tr><td><strong>Actors</strong></td><td>Coordinator</td></tr>
+<tr><td><strong>Description</strong></td><td>View, manage, and track all application letters generated for students.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Coordinator is signed in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Letters are viewed, organized, and tracked by status.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Application Letters page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all letters grouped by department</td></tr>
+<tr><td>3</td><td>Filter by department or status</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Display filtered results</td></tr>
+<tr><td>5</td><td>Select letter to view details</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Show ref_number, student info, dates, status</td></tr>
+<tr><td>7</td><td>Download or view letter PDF</td><td>—</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>2.1 If no letters exist, show empty state with link to generate.</td></tr>
+<tr><td><strong>Include</strong></td><td>Generate Letters, Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Letter statuses: generated, sent, viewed. Tracks sent_at, viewed_at timestamps.</td></tr>
+</table>
+
+<h2>Table 22: Generate Letters Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Generate Letters</td></tr>
+<tr><td><strong>ID</strong></td><td>UC22</td></tr>
+<tr><td><strong>Actors</strong></td><td>Coordinator</td></tr>
+<tr><td><strong>Description</strong></td><td>Generate official application letters for students and send to recipients.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Student exists without application letter, coordinator is signed in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Letter PDF is generated, stored, and student is notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Generate Letters page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load departments with students (with/without letters)</td></tr>
+<tr><td>3</td><td>Select students to generate letters for</td><td>—</td></tr>
+<tr><td>4</td><td>Enter letter details: start_date, end_date</td><td>—</td></tr>
+<tr><td>5</td><td>Click Generate</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Generate unique ref_number (format: AL-DEPT-XXXXX)</td></tr>
+<tr><td>7</td><td>—</td><td>Create PDF using template with student/department info</td></tr>
+<tr><td>8</td><td>—</td><td>Save letter record and PDF file</td></tr>
+<tr><td>9</td><td>—</td><td>Send letter and notify student</td></tr>
+<tr><td>10</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>3.1 If student already has letter, show existing status.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Bulk generation supported. PDF generated using DomPDF with blade template.</td></tr>
+</table>
+
+<h2>Table 23: View Department Students Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Department Students</td></tr>
+<tr><td><strong>ID</strong></td><td>UC23</td></tr>
+<tr><td><strong>Actors</strong></td><td>Coordinator</td></tr>
+<tr><td><strong>Description</strong></td><td>View students within a department including advisors, applications, and letter status.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Coordinator is signed in, department exists.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Coordinator can view student details and manage department oversight.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Departments page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all departments with statistics</td></tr>
+<tr><td>3</td><td>Select a department</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Load students and advisors for department</td></tr>
+<tr><td>5</td><td>—</td><td>Display student list, assignments, application status</td></tr>
+<tr><td>6</td><td>Click on student for details</td><td>—</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>4.1 If department has no students, show empty state.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Shows: students_count, active_students, pending_applications, advisors_count.</td></tr>
+</table>
+
+<h2>Table 24: Manage Students Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Students</td></tr>
+<tr><td><strong>ID</strong></td><td>UC24</td></tr>
+<tr><td><strong>Actors</strong></td><td>Department Head</td></tr>
+<tr><td><strong>Description</strong></td><td>Create, edit, search, and manage student records for the department.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Department head is signed in and has assigned department.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Student records are created/updated and available for reporting.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open department dashboard</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load students for the department</td></tr>
+<tr><td>3</td><td>Click Create Student or Edit existing</td><td>—</td></tr>
+<tr><td>4</td><td>Enter/update: username, email, password, name, phone, CGPA, university_id</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate inputs (email unique, university_id format)</td></tr>
+<tr><td>6</td><td>Save changes</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Create/update User and Student records</td></tr>
+<tr><td>8</td><td>—</td><td>If status changed, notify student</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If email exists, show error.<br>5.2 If university_id format invalid, show format requirement.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>University ID format: UGR/12345/12, UGP/12345/12, or TUGR/12345/12.</td></tr>
+</table>
+
+<h2>Table 25: Manage Advisors Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Advisors</td></tr>
+<tr><td><strong>ID</strong></td><td>UC25</td></tr>
+<tr><td><strong>Actors</strong></td><td>Department Head</td></tr>
+<tr><td><strong>Description</strong></td><td>Create, edit, and manage faculty advisor accounts for the department.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Department head is signed in and has assigned department.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Advisor records are created/updated.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Advisors management page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load advisors for department with assignment counts</td></tr>
+<tr><td>3</td><td>Click Create Advisor or Edit existing</td><td>—</td></tr>
+<tr><td>4</td><td>Enter/update: username, email, password, name, phone, status</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate inputs</td></tr>
+<tr><td>6</td><td>Save changes</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Create/update User record with role='advisor'</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If email/username exists, show error.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Advisor role is set automatically. Soft delete supported with restore.</td></tr>
+</table>
+
+<h2>Table 26: Assign Advisors Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Assign Advisors</td></tr>
+<tr><td><strong>ID</strong></td><td>UC26</td></tr>
+<tr><td><strong>Actors</strong></td><td>Department Head</td></tr>
+<tr><td><strong>Description</strong></td><td>Place students with advisors for academic guidance during their internship.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Students and advisors exist in department, department head is signed in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Advisor assignment is created and both parties are notified.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Advisor Assignment page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Show unassigned students and available advisors</td></tr>
+<tr><td>3</td><td>Select student and target advisor</td><td>—</td></tr>
+<tr><td>4</td><td>Confirm assignment</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate advisor availability</td></tr>
+<tr><td>6</td><td>—</td><td>Create AdvisorAssignment record</td></tr>
+<tr><td>7</td><td>—</td><td>Notify advisor and student</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>3.1 If student already has advisor, show current assignment with reassign option.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Assignment can be deleted/reassigned. Advisors can have multiple students.</td></tr>
+</table>
+
+<h2>Table 27: View Statistics Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>View Statistics</td></tr>
+<tr><td><strong>ID</strong></td><td>UC27</td></tr>
+<tr><td><strong>Actors</strong></td><td>Department Head</td></tr>
+<tr><td><strong>Description</strong></td><td>View department-wide statistics on students, applications, and advisor workload.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Department head is signed in with assigned department.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Statistics and reports are displayed.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Department Dashboard</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Calculate and display statistics</td></tr>
+<tr><td>3</td><td>View breakdown by category</td><td>—</td></tr>
+<tr><td>4</td><td>—</td><td>Show: total students, advisors, pending/accepted/completed apps</td></tr>
+<tr><td>5</td><td>View accepted or completed applications lists</td><td>—</td></tr>
+<tr><td>6</td><td>—</td><td>Load detailed application data</td></tr>
+<tr><td>7</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>2.1 If no department assigned, show error message.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Statistics include students with ending internships, advisor workload distribution.</td></tr>
+</table>
+
+<h2>Table 28: Manage Users Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Users</td></tr>
+<tr><td><strong>ID</strong></td><td>UC28</td></tr>
+<tr><td><strong>Actors</strong></td><td>System Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>Full CRUD operations on user accounts with audit logging.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Admin is signed in with admin role.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>User account is created/updated and audit record is kept.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open User Management page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all users with filters (role, status, department)</td></tr>
+<tr><td>3</td><td>Click Create User</td><td>—</td></tr>
+<tr><td>4</td><td>Enter: name, email, username, password, role, department</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate inputs (unique email/username)</td></tr>
+<tr><td>6</td><td>Save user</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Create user with selected role, send welcome email</td></tr>
+<tr><td>8</td><td>—</td><td>Log action for audit</td></tr>
+<tr><td>9</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If email/username duplicate, show error.<br>6.1 If trying to delete self or main admin, block action.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Roles: admin, coordinator, dept_head, company_admin, advisor, supervisor, student.</td></tr>
+</table>
+
+<h2>Table 29: Manage Companies Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Companies</td></tr>
+<tr><td><strong>ID</strong></td><td>UC29</td></tr>
+<tr><td><strong>Actors</strong></td><td>System Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>CRUD operations on company records, assign company admins, manage status.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Admin is signed in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Company records are created/updated.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Company Management page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all companies with status and admin info</td></tr>
+<tr><td>3</td><td>Click Create Company</td><td>—</td></tr>
+<tr><td>4</td><td>Enter: name, industry, location, website, description, logo</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate inputs</td></tr>
+<tr><td>6</td><td>Save company</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Create company record, store logo if provided</td></tr>
+<tr><td>8</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>6.1 If deactivating company, warn about active postings.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Logo stored in public/storage/company_logos. Soft delete with restore.</td></tr>
+</table>
+
+<h2>Table 30: Manage Departments Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Departments</td></tr>
+<tr><td><strong>ID</strong></td><td>UC30</td></tr>
+<tr><td><strong>Actors</strong></td><td>System Admin</td></tr>
+<tr><td><strong>Description</strong></td><td>CRUD operations on department records, assign department heads.</td></tr>
+<tr><td><strong>Priority</strong></td><td>High</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>Admin is signed in.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Department records are created/updated; department head assignments managed.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Department Management page</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load all departments with statistics</td></tr>
+<tr><td>3</td><td>Click Create Department</td><td>—</td></tr>
+<tr><td>4</td><td>Enter: name, code, description</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate inputs</td></tr>
+<tr><td>6</td><td>Save department</td><td>—</td></tr>
+<tr><td>7</td><td>—</td><td>Create department record</td></tr>
+<tr><td>8</td><td>Optionally assign department head</td><td>—</td></tr>
+<tr><td>9</td><td>—</td><td>Create DepartmentHeadAssignment and notify</td></tr>
+<tr><td>10</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>6.1 If code already exists, show duplicate error.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Soft delete with restore functionality.</td></tr>
+</table>
+
+<h2>Table 31: Manage Homepage Use Case Description</h2>
+<table>
+<tr><th>Field</th><th>Description</th></tr>
+<tr><td><strong>Name</strong></td><td>Manage Homepage</td></tr>
+<tr><td><strong>ID</strong></td><td>UC31</td></tr>
+<tr><td><strong>Actors</strong></td><td>System Admin, Coordinator</td></tr>
+<tr><td><strong>Description</strong></td><td>Update homepage content including text, images, carousel, and success stories.</td></tr>
+<tr><td><strong>Priority</strong></td><td>Medium</td></tr>
+<tr><td><strong>Pre-condition</strong></td><td>User is signed in with permission to edit content.</td></tr>
+<tr><td><strong>Post condition</strong></td><td>Homepage content is updated and visible to visitors.</td></tr>
+<tr><td><strong>Basic Course of Action</strong></td><td>
+<table class="nested-table">
+<tr><th>Step</th><th>Actor Action</th><th>System Response</th></tr>
+<tr><td>1</td><td>Open Homepage Editor</td><td>—</td></tr>
+<tr><td>2</td><td>—</td><td>Load current HomeContent data</td></tr>
+<tr><td>3</td><td>Edit content: title, description, about sections</td><td>—</td></tr>
+<tr><td>4</td><td>Upload images: logo, background, carousel images</td><td>—</td></tr>
+<tr><td>5</td><td>—</td><td>Validate file types and sizes (max 5MB)</td></tr>
+<tr><td>6</td><td>Configure sections: how it works, statistics</td><td>—</td></tr>
+<tr><td>7</td><td>Save and preview</td><td>—</td></tr>
+<tr><td>8</td><td>—</td><td>Save all content, process image uploads</td></tr>
+<tr><td>9</td><td>—</td><td>Homepage reflects changes</td></tr>
+<tr><td>10</td><td>Use Case ends</td><td>—</td></tr>
+</table>
+</td></tr>
+<tr><td><strong>Alternate course of action</strong></td><td>5.1 If image invalid, show error and allow text-only.<br>7.1 If pending success stories exist, show for review.</td></tr>
+<tr><td><strong>Include</strong></td><td>Login</td></tr>
+<tr><td><strong>Note/Issues</strong></td><td>Success stories from students require admin approval before display.</td></tr>
+</table>
+
+<hr>
+
+<h2>Appendix A: Use Case Summary Matrix</h2>
+<table>
+<tr><th>UC ID</th><th>Name</th><th>Primary Actor(s)</th><th>Priority</th></tr>
+<tr><td>UC01</td><td>Login</td><td>All Users</td><td>High</td></tr>
+<tr><td>UC02</td><td>Logout</td><td>All Users</td><td>High</td></tr>
+<tr><td>UC03</td><td>Manage Profile</td><td>All Users</td><td>Medium</td></tr>
+<tr><td>UC04</td><td>View Notifications</td><td>All Users</td><td>High</td></tr>
+<tr><td>UC05</td><td>Chat</td><td>All Users</td><td>High</td></tr>
+<tr><td>UC06</td><td>Browse Postings</td><td>Student</td><td>High</td></tr>
+<tr><td>UC07</td><td>Apply for Internship</td><td>Student</td><td>High</td></tr>
+<tr><td>UC08</td><td>Manage Application</td><td>Student</td><td>High</td></tr>
+<tr><td>UC09</td><td>View Forms</td><td>Student</td><td>Medium</td></tr>
+<tr><td>UC10</td><td>Manage Postings</td><td>Company Admin, Supervisor</td><td>High</td></tr>
+<tr><td>UC11</td><td>Manage Supervisors</td><td>Company Admin</td><td>Medium</td></tr>
+<tr><td>UC12</td><td>Process Applications</td><td>Company Admin</td><td>High</td></tr>
+<tr><td>UC13</td><td>Assign Supervisor</td><td>Company Admin</td><td>Medium</td></tr>
+<tr><td>UC14</td><td>View Assigned Students</td><td>Company Supervisor</td><td>High</td></tr>
+<tr><td>UC15</td><td>Approve Forms</td><td>Company Supervisor</td><td>High</td></tr>
+<tr><td>UC16</td><td>Create Analytics</td><td>Company Supervisor</td><td>High</td></tr>
+<tr><td>UC17</td><td>View Assigned Students</td><td>Faculty Advisor</td><td>High</td></tr>
+<tr><td>UC18</td><td>Manage Forms</td><td>Faculty Advisor</td><td>High</td></tr>
+<tr><td>UC19</td><td>Provide Feedback</td><td>Faculty Advisor</td><td>Medium</td></tr>
+<tr><td>UC20</td><td>View Analytics</td><td>Faculty Advisor, Dept Head</td><td>High</td></tr>
+<tr><td>UC21</td><td>Manage Application Letters</td><td>Coordinator</td><td>High</td></tr>
+<tr><td>UC22</td><td>Generate Letters</td><td>Coordinator</td><td>High</td></tr>
+<tr><td>UC23</td><td>View Department Students</td><td>Coordinator</td><td>Medium</td></tr>
+<tr><td>UC24</td><td>Manage Students</td><td>Department Head</td><td>High</td></tr>
+<tr><td>UC25</td><td>Manage Advisors</td><td>Department Head</td><td>High</td></tr>
+<tr><td>UC26</td><td>Assign Advisors</td><td>Department Head</td><td>High</td></tr>
+<tr><td>UC27</td><td>View Statistics</td><td>Department Head</td><td>Medium</td></tr>
+<tr><td>UC28</td><td>Manage Users</td><td>System Admin</td><td>High</td></tr>
+<tr><td>UC29</td><td>Manage Companies</td><td>System Admin</td><td>High</td></tr>
+<tr><td>UC30</td><td>Manage Departments</td><td>System Admin</td><td>High</td></tr>
+<tr><td>UC31</td><td>Manage Homepage</td><td>System Admin</td><td>Medium</td></tr>
+</table>
+
+<hr>
+
+<p style="text-align: center;"><em>Document Version: 1.0 | Last Updated: January 2026 | System: ICMS - Internship and Career Management System</em></p>
+
+</body>
+</html>
+

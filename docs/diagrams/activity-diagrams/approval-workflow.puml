@@ -1,0 +1,192 @@
+@startuml Approval_Workflow
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activityShape roundedBox
+
+title ICMS - Multi-Level Approval Workflow\nActivity Diagram
+
+|Student|
+start
+
+:Submit Form/Document;
+note right
+    Form Types:
+    - Progress Report
+    - Evaluation Form
+    - Attendance Report
+    - Completion Form
+end note
+
+|System|
+:Receive Submission;
+:Validate Document;
+
+if (Document Valid?) then (yes)
+    :Create Form Record;
+    :Set Status = "Pending";
+    :Identify Approval Chain;
+    
+    :Determine First Approver;
+    note right
+        Approval Order:
+        1. Faculty Advisor
+        2. Company Supervisor
+        3. Coordinator (if needed)
+    end note
+    
+    ' === LEVEL 1: ADVISOR APPROVAL ===
+    :Send to Faculty Advisor;
+    
+    |Faculty Advisor|
+    :Receive Notification;
+    :Access Form/Document;
+    :Review Content;
+    
+    if (Meets Academic Standards?) then (yes)
+        :Add Comments (optional);
+        :Click "Approve";
+        
+        |System|
+        :Record Advisor Approval;
+        :Update Status = "Advisor Approved";
+        :Log Approval with Timestamp;
+        
+        ' === LEVEL 2: SUPERVISOR APPROVAL ===
+        :Send to Company Supervisor;
+        
+        |Company Supervisor|
+        :Receive Notification;
+        :Access Form/Document;
+        :Review Work Performance;
+        
+        if (Meets Company Standards?) then (yes)
+            :Add Feedback;
+            :Click "Approve";
+            
+            |System|
+            :Record Supervisor Approval;
+            :Update Status = "Supervisor Approved";
+            :Log Approval with Timestamp;
+            
+            ' === CHECK IF COORDINATOR NEEDED ===
+            if (Requires Coordinator Approval?) then (yes)
+                ' === LEVEL 3: COORDINATOR APPROVAL ===
+                :Send to Coordinator;
+                
+                |Coordinator|
+                :Receive Notification;
+                :Final Review;
+                
+                if (All Requirements Met?) then (yes)
+                    :Click "Final Approve";
+                    
+                    |System|
+                    :Record Final Approval;
+                    :Update Status = "Approved";
+                    :Generate Confirmation;
+                    
+                else (no)
+                    :Request Revision;
+                    :Add Required Changes;
+                    
+                    |System|
+                    :Set Status = "Revision Required";
+                    :Send Back to Student;
+                    
+                    |Student|
+                    :View Revision Requests;
+                    :Make Required Changes;
+                    :Re-submit;
+                    
+                    |System|
+                    :Reset Approval Chain;
+                endif
+            else (no)
+                :Update Status = "Approved";
+            endif
+            
+            |System|
+            :Notify All Parties;
+            :Archive Approved Document;
+            
+            |Student|
+            :Receive Approval Confirmation;
+            #LightGreen:Form Approved!;
+            
+        else (no)
+            :Request Changes;
+            :Add Specific Feedback;
+            
+            |System|
+            :Set Status = "Changes Requested";
+            :Notify Student;
+            
+            |Student|
+            :View Supervisor Feedback;
+            :Make Corrections;
+            :Re-submit to Supervisor;
+        endif
+        
+    else (no)
+        :Request Revisions;
+        :Provide Academic Feedback;
+        
+        |System|
+        :Set Status = "Revision Required";
+        :Notify Student;
+        
+        |Student|
+        :View Advisor Feedback;
+        :Revise Document;
+        :Re-submit;
+    endif
+    
+else (no)
+    |System|
+    :Return to Student;
+    :List Validation Errors;
+    
+    |Student|
+    :View Errors;
+    :Correct Document;
+    :Re-upload;
+endif
+
+stop
+
+' === REJECTION PATH ===
+|Faculty Advisor|
+if (Reject Completely?) then (yes)
+    :Add Rejection Reason;
+    :Click "Reject";
+    
+    |System|
+    :Set Status = "Rejected";
+    :Notify Student;
+    :Archive with Reason;
+    
+    |Student|
+    :Receive Rejection;
+    :View Reason;
+    :Option to Submit New Form;
+    #Pink:Form Rejected;
+    stop
+endif
+
+|Company Supervisor|
+if (Reject Completely?) then (yes)
+    :Add Rejection Reason;
+    :Click "Reject";
+    
+    |System|
+    :Set Status = "Rejected";
+    :Notify Student and Advisor;
+    :Archive with Reason;
+    
+    |Student|
+    #Pink:Form Rejected by Supervisor;
+    stop
+endif
+
+@enduml
+

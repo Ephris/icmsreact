@@ -1,0 +1,244 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" etag="icms-arch-comparison" type="device">
+  <diagram id="architecture-comparison" name="Architecture Comparison">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Architecture Comparison: Why Monolithic MVC for ICMS?" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Monolithic MVC (ICMS) -->
+        <mxCell id="monolith-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="300" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-label" value="MONOLITHIC MVC" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-sub" value="(ICMS Architecture)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="100" y="115" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="monolith-diagram" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#66bb6a;" vertex="1" parent="1">
+          <mxGeometry x="70" y="145" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="m-browser" value="Browser (React)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81c784;strokeColor=#4caf50;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="155" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m-arrow1" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#2e7d32;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="185" as="sourcePoint" />
+            <mxPoint x="200" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-laravel" value="Laravel + Inertia.js&#xa;(Single Application)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81c784;strokeColor=#4caf50;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="205" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m-arrow2" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#2e7d32;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="245" as="sourcePoint" />
+            <mxPoint x="200" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-db" value="MySQL Database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81c784;strokeColor=#4caf50;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="265" width="140" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="monolith-check1" value="✓ Single Deployment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="305" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check2" value="✓ Type-safe Props" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="325" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check3" value="✓ Server-side Routing" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="345" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check4" value="✓ Rapid Development" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="365" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check5" value="✓ Session Auth" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="385" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check6" value="✓ Low Complexity" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="200" y="305" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check7" value="✓ Small Team OK" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="200" y="325" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="monolith-check8" value="✓ Real-time Ready" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="200" y="345" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Three-Tier (REST API) -->
+        <mxCell id="threetier-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="300" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-label" value="THREE-TIER (REST API)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="440" y="90" width="220" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-sub" value="(Traditional SPA + API)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#ef6c00;" vertex="1" parent="1">
+          <mxGeometry x="450" y="115" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="threetier-diagram" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#ffb74d;" vertex="1" parent="1">
+          <mxGeometry x="420" y="145" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t-browser" value="SPA (React/Vue)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ffa726;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="155" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t-arrow1" value="REST" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#ef6c00;fontStyle=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="185" as="sourcePoint" />
+            <mxPoint x="550" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t-api" value="API Server&#xa;(Separate Backend)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ffa726;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="205" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t-arrow2" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#ef6c00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="245" as="sourcePoint" />
+            <mxPoint x="550" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t-db" value="Database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ffa726;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="265" width="140" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="threetier-cross1" value="✗ Two Deployments" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#bf360c;" vertex="1" parent="1">
+          <mxGeometry x="430" y="305" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-cross2" value="✗ API Versioning" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#bf360c;" vertex="1" parent="1">
+          <mxGeometry x="430" y="325" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-cross3" value="✗ Type Sync Issues" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#bf360c;" vertex="1" parent="1">
+          <mxGeometry x="430" y="345" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-cross4" value="✗ Token Auth" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#bf360c;" vertex="1" parent="1">
+          <mxGeometry x="430" y="365" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-check1" value="○ Independent Scale" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="560" y="305" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-check2" value="○ API Reuse" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="560" y="325" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="threetier-note" value="Not needed for ICMS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;fontColor=#bf360c;" vertex="1" parent="1">
+          <mxGeometry x="475" y="390" width="150" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Microservices -->
+        <mxCell id="micro-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="750" y="80" width="300" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-label" value="MICROSERVICES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="810" y="90" width="180" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-sub" value="(Distributed System)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="800" y="115" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="micro-diagram" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef9a9a;strokeColor=#e57373;" vertex="1" parent="1">
+          <mxGeometry x="770" y="145" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-gateway" value="API Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="855" y="155" width="90" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-svc1" value="User&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="785" y="195" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-svc2" value="App&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="850" y="195" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-svc3" value="Chat&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="915" y="195" width="55" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-svc4" value="Notif&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="980" y="195" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-db1" value="DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="790" y="250" width="45" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-db2" value="DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="855" y="250" width="45" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-db3" value="DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="920" y="250" width="45" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mi-queue" value="Message Queue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e57373;strokeColor=#ef5350;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="840" y="275" width="120" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="micro-cross1" value="✗ High Complexity" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="780" y="305" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-cross2" value="✗ Many Deployments" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="780" y="325" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-cross3" value="✗ Large Team Needed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="780" y="345" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-cross4" value="✗ Distributed Data" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="780" y="365" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-cross5" value="✗ Network Latency" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="780" y="385" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-check1" value="○ Max Scalability" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="910" y="305" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="micro-note" value="Overkill for ICMS scope" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="815" y="390" width="170" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Conclusion Box -->
+        <mxCell id="conclusion" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="1000" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="conclusion-title" value="Why Monolithic MVC is Best for ICMS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="350" y="460" width="400" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reason1" value="1. Project Scale: ICMS is a departmental system with predictable, moderate user load" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="490" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="reason2" value="2. Development Team: Small to medium team can efficiently manage single codebase" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="510" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="reason3" value="3. Real-time Features: Laravel Events + Pusher provides native real-time support" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="530" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="reason4" value="4. Maintenance: Single codebase simplifies long-term maintenance and updates" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="490" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="reason5" value="5. Security: Server-side routing with Inertia.js provides inherent security benefits" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="510" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="reason6" value="6. Cost-Effective: Lower infrastructure and operational costs than distributed systems" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="530" width="450" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="590" width="400" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="Legend:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="595" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-check" value="✓ = Advantage for ICMS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="60" y="615" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-cross" value="✗ = Disadvantage/Not needed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#b71c1c;" vertex="1" parent="1">
+          <mxGeometry x="200" y="615" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-circle" value="○ = Neutral/Not applicable" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="360" y="615" width="140" height="20" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

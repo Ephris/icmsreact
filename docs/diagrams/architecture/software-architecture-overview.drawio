@@ -1,0 +1,215 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" etag="icms-arch" type="device">
+  <diagram id="software-architecture-overview" name="Software Architecture Overview">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="ICMS - Monolithic MVC Architecture Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Client Layer Container -->
+        <mxCell id="client-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="1000" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="client-label" value="CLIENT LAYER (Browser)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1a365d;" vertex="1" parent="1">
+          <mxGeometry x="60" y="85" width="250" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Client Components -->
+        <mxCell id="browser" value="Web Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="react" value="React 19&#xa;+ TypeScript" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0288d1;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="230" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tailwind" value="Tailwind CSS&#xa;+ shadcn/ui" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#38bdf8;strokeColor=#0284c7;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="380" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="inertia-client" value="Inertia.js&#xa;Client Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9333ea;strokeColor=#7c3aed;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="530" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="echo-client" value="Laravel Echo&#xa;(WebSocket)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=#16a34a;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="680" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="charts" value="Recharts&#xa;(Visualization)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f97316;strokeColor=#ea580c;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="830" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Connection Arrow Client to Server -->
+        <mxCell id="arrow1" value="XHR Requests (JSON)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1a1a2e;fontStyle=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="230" as="sourcePoint" />
+            <mxPoint x="550" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Server Layer Container -->
+        <mxCell id="server-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="270" width="1000" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="server-label" value="MONOLITHIC APPLICATION SERVER (Laravel 12)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#1e3a2f;" vertex="1" parent="1">
+          <mxGeometry x="60" y="275" width="400" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- MVC Container -->
+        <mxCell id="mvc-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="310" width="600" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="mvc-label" value="MVC Pattern" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=3;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="80" y="315" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- MVC Components -->
+        <mxCell id="routes" value="Routes&#xa;(web.php)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff6b6b;strokeColor=#c92a2a;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="345" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="middleware" value="Middleware&#xa;(Auth, CSRF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffa94d;strokeColor=#e8590c;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="210" y="345" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="controllers" value="Controllers&#xa;(Role-based)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#748ffc;strokeColor=#4c6ef5;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="330" y="345" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="models" value="Eloquent&#xa;Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#69db7c;strokeColor=#37b24d;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="450" y="345" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="inertia-server" value="Inertia.js&#xa;Responses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9333ea;strokeColor=#7c3aed;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="570" y="345" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- MVC Arrows -->
+        <mxCell id="mvc-arrow1" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="370" as="sourcePoint" />
+            <mxPoint x="210" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mvc-arrow2" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="370" as="sourcePoint" />
+            <mxPoint x="330" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mvc-arrow3" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="370" as="sourcePoint" />
+            <mxPoint x="450" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mvc-arrow4" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="370" as="sourcePoint" />
+            <mxPoint x="570" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Service Layer -->
+        <mxCell id="service-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="445" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="service-label" value="Service Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=3;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="notification-svc" value="Notification&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="480" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="audit-svc" value="Audit&#xa;Logger" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="480" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="file-svc" value="File&#xa;Validator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="480" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Real-time Layer -->
+        <mxCell id="realtime-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#2196f3;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="445" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="realtime-label" value="Real-time Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=3;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="450" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="events" value="Laravel&#xa;Events" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1976d2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="480" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="broadcasting" value="Pusher&#xa;Broadcasting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1976d2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="480" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="channels" value="WebSocket&#xa;Channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1976d2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="480" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- PDF Generation -->
+        <mxCell id="pdf-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#e91e63;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="310" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="pdf-label" value="Document Generation" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=3;fontColor=#c2185b;" vertex="1" parent="1">
+          <mxGeometry x="700" y="315" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dompdf" value="DomPDF&#xa;(PDF Generation)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8bbd9;strokeColor=#c2185b;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="710" y="350" width="110" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Queue -->
+        <mxCell id="queue-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#9c27b0;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="310" width="170" height="225" as="geometry" />
+        </mxCell>
+        <mxCell id="queue-label" value="Background Jobs" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=3;fontColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="870" y="315" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="queue" value="Laravel Queue&#xa;(Async Jobs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="350" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mail" value="Email&#xa;Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="410" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="scheduler" value="Task&#xa;Scheduler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#7b1fa2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="470" width="130" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Connection Arrow Server to Data -->
+        <mxCell id="arrow2" value="Eloquent Queries" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1a1a2e;fontStyle=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="550" as="sourcePoint" />
+            <mxPoint x="550" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Data Layer Container -->
+        <mxCell id="data-layer" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="590" width="1000" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="data-label" value="DATA LAYER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#7f1d1d;" vertex="1" parent="1">
+          <mxGeometry x="60" y="595" width="150" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Components -->
+        <mxCell id="mysql" value="MySQL / MariaDB&#xa;(Primary Database)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="630" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" value="File Storage&#xa;(Documents, Images)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="630" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cache" value="Cache Layer&#xa;(Sessions, Data)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="630" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="logs" value="Log Files&#xa;(Audit Trail)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="630" width="150" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- WebSocket Arrow -->
+        <mxCell id="ws-arrow" value="WebSocket (Real-time)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#22c55e;fontStyle=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="500" as="sourcePoint" />
+            <mxPoint x="800" y="155" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

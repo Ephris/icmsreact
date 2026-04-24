@@ -1,0 +1,104 @@
+@startuml ICMS_Login_Activity
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activity {
+    BackgroundColor #87CEEB
+    BorderColor #4A90A4
+    FontColor #000000
+}
+skinparam activityDiamond {
+    BackgroundColor #4169E1
+    BorderColor #4A90A4
+    FontColor #FFFFFF
+}
+skinparam arrow {
+    Color #8B0000
+}
+skinparam note {
+    BackgroundColor #FFFACD
+    BorderColor #8B8B00
+}
+
+title ICMS - Login Activity Diagram
+
+|#LightCyan|User|
+start
+
+:idle state;
+note right: Initial State
+
+:Activate;
+
+|#LightGreen|System|
+:Start ICMS;
+
+:Select;
+
+|#LightCyan|User|
+:login page;
+note right
+  Display login form:
+  - Email field
+  - Password field
+  - Remember me checkbox
+  - "Log in" button
+  - "Forgot password?" link
+end note
+
+:Fill;
+
+:Login form;
+note right
+  User enters:
+  - Email
+  - Password
+end note
+
+|#LightGreen|System|
+:verify;
+
+if (Credentials Correct?) then (Correct)
+    :Confirm Login;
+    note right
+      - Create session
+      - Regenerate token
+      - Check user role
+    end note
+    
+    :Display Home page;
+    note right
+      Role-based redirect:
+      • student → /student
+      • company_admin → /companyadmin
+      • supervisor → /company-supervisor
+      • dept_head → /department-head
+      • advisor → /faculty-advisor
+      • admin → /dashboard
+    end note
+    
+    |#LightCyan|User|
+    :Log out;
+    
+    |#LightGreen|System|
+    :Destroy session;
+    :Redirect to welcome page;
+    
+else (Incorrect)
+    |#LightCyan|User|
+    :Display error message;
+    note right
+      "The provided credentials
+      do not match our records"
+    end note
+    
+    :Login form;
+    note right: Return to login form
+    
+    backward :Retry login;
+endif
+
+stop
+note right: Final state
+
+@enduml
+

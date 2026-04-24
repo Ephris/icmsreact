@@ -1,0 +1,142 @@
+@startuml ICMS_Apply_Internship_Activity
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activity {
+    BackgroundColor #90EE90
+    BorderColor #228B22
+    FontColor #000000
+}
+skinparam activityDiamond {
+    BackgroundColor #4169E1
+    BorderColor #4A90A4
+    FontColor #FFFFFF
+}
+skinparam arrow {
+    Color #4169E1
+}
+skinparam note {
+    BackgroundColor #FFFACD
+    BorderColor #8B8B00
+}
+
+title ICMS - Apply for Internship Activity Diagram
+
+|#LightCyan|Student|
+start
+note right: Initial State
+
+:start ICMS;
+
+:internship page;
+note right
+  /student/postings
+  Browse available postings
+  Filter by: Type, Location,
+  Work Type, GPA
+end note
+
+:Login Page;
+note right
+  If not authenticated,
+  redirect to login first
+end note
+
+:Insert username and password;
+
+|#LightGreen|System|
+if (Valid username and password?) then (Valid)
+    
+    |#LightCyan|Student|
+    :apply form page;
+    note right
+      /student/postings/{id}
+      View posting details:
+      - Title, Company
+      - Location, Salary
+      - Requirements
+      - Skills required
+    end note
+    
+    |#LightGreen|System|
+    :Check application letter;
+    
+    if (Has Application Letter?) then (Yes)
+        
+        |#LightCyan|Student|
+        :Fill information detail;
+        note right
+          Application form:
+          - Resume (PDF, required)
+          - Cover Letter (optional)
+          - Portfolio URL
+          - Skills
+          - Certifications
+        end note
+        
+        :Click "Apply Now" button;
+        
+        |#LightGreen|System|
+        :Validate();
+        
+        if (Valid format?) then (Valid format)
+            :Store application;
+            note right
+              INSERT INTO applications
+              status = 'pending'
+            end note
+            
+            :Notify company admin;
+            
+            |#LightCyan|Student|
+            :display successful message;
+            note right
+              "Application submitted
+              successfully"
+              Redirect to /student/applications
+            end note
+            
+            stop
+            note right: Final State
+            
+        else (Invalid format)
+            |#LightCyan|Student|
+            :Display validation error;
+            note right
+              Errors:
+              - Resume required
+              - File too large (max 2MB)
+              - Invalid PDF format
+              - Deadline passed
+              - GPA requirement not met
+            end note
+            
+            backward :apply form page;
+        endif
+        
+    else (No)
+        |#LightCyan|Student|
+        :Display error;
+        note right
+          "Application Letter Required"
+          
+          Options:
+          - Check Application Letter Status
+          - Update Profile
+        end note
+        
+        stop
+    endif
+    
+else (Invalid)
+    |#LightCyan|Student|
+    :Display login error;
+    note right
+      "The provided credentials
+      do not match our records"
+    end note
+    
+    backward :Login Page;
+endif
+
+@enduml
+

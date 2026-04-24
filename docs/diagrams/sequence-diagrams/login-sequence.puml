@@ -1,0 +1,96 @@
+@startuml ICMS_Login_Sequence
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam participant {
+    BackgroundColor #4A90A4
+    BorderColor #4A90A4
+    FontColor #000000
+}
+skinparam sequence {
+    ArrowColor #8B0000
+    LifeLineBorderColor #4A90A4
+    LifeLineBackgroundColor #E0E0E0
+}
+skinparam note {
+    BackgroundColor #FFFACD
+    BorderColor #8B8B00
+}
+
+title ICMS - User Login Sequence Diagram
+
+actor User
+participant "ICMS\n(Welcome Page)" as ICMS
+participant "Login Page\n(login.tsx)" as LoginPage
+participant "Login Form" as LoginForm
+participant "Authenticated\nSessionController" as Controller
+database "Database\n(users)" as DB
+
+== Access Login ==
+
+User -> ICMS : Start()
+activate ICMS
+
+ICMS -> LoginPage : Display()
+activate LoginPage
+
+LoginPage --> User : Show Login Form\n(Email, Password, Remember me)
+deactivate ICMS
+
+== Enter Credentials ==
+
+User -> LoginForm : Enter email and password
+activate LoginForm
+
+User -> LoginForm : Click "Log in" button()
+
+LoginForm -> Controller : POST /login\n(email, password, remember)
+activate Controller
+
+== Validate Credentials ==
+
+Controller -> Controller : validate()\n- Email required\n- Password required
+
+Controller -> DB : Query user by email
+activate DB
+
+DB --> Controller : Return user record
+deactivate DB
+
+Controller -> Controller : verify()\nCheck password hash
+
+alt Invalid Credentials
+    Controller --> LoginForm : incorrect validation()
+    LoginForm --> User : Display error:\n"The provided credentials\ndo not match our records"
+else Valid Credentials
+    Controller -> DB : Check user status
+    activate DB
+    DB --> Controller : Return status
+    deactivate DB
+    
+    alt Account Inactive/Suspended
+        Controller --> LoginForm : invalid display()
+        LoginForm --> User : Display error:\n"Your account has been\ndeactivated"
+    else Account Active
+        Controller -> Controller : Create session\nRegenerate token
+        
+        Controller --> LoginForm : response()\nRedirect by role
+        deactivate Controller
+        
+        LoginForm --> User : display()\nRedirect to Dashboard
+        deactivate LoginForm
+        deactivate LoginPage
+        
+        note right of User
+            Role-based redirects:
+            • student → /student
+            • company_admin → /companyadmin
+            • supervisor → /company-supervisor
+            • dept_head → /department-head
+            • advisor → /faculty-advisor
+            • admin/coordinator → /dashboard
+        end note
+    end
+end
+
+@enduml
+

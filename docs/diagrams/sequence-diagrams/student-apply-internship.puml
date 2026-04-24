@@ -1,0 +1,167 @@
+@startuml Student_Apply_Internship
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam sequenceMessageAlign center
+
+title ICMS - Student Apply for Internship\nSequence Diagram
+
+actor "Student" as Student
+participant "Browser\n(React)" as UI
+participant "API\nController" as API
+participant "Application\nService" as AppService
+participant "Validation\nService" as Validator
+database "Database" as DB
+participant "Notification\nService" as NotifService
+actor "Company Admin" as Company
+
+== Browse Internship Postings ==
+
+Student -> UI : Navigate to Postings
+activate UI
+
+UI -> API : GET /api/postings?status=open
+activate API
+
+API -> DB : Query open postings
+activate DB
+DB --> API : Return postings list
+deactivate DB
+
+API --> UI : 200 OK (postings data)
+deactivate API
+
+UI --> Student : Display available internships
+deactivate UI
+
+== View Posting Details ==
+
+Student -> UI : Click on posting
+activate UI
+
+UI -> API : GET /api/postings/{posting_id}
+activate API
+
+API -> DB : Query posting details
+activate DB
+DB --> API : Return posting with company info
+deactivate DB
+
+API --> UI : 200 OK (posting details)
+deactivate API
+
+UI --> Student : Show posting details page
+deactivate UI
+
+== Submit Application ==
+
+Student -> UI : Click "Apply Now"
+activate UI
+
+UI --> Student : Display application form
+Student -> UI : Fill form (resume, cover letter, skills)
+UI --> Student : Form filled
+
+Student -> UI : Click "Submit Application"
+
+UI -> API : POST /api/applications
+activate API
+note right of API
+    Request Body:
+    {
+        posting_id: 123,
+        resume: file,
+        cover_letter: text,
+        skills: [...],
+        portfolio: url
+    }
+end note
+
+API -> Validator : Validate application data
+activate Validator
+
+Validator -> Validator : Check required fields
+Validator -> DB : Check if already applied
+activate DB
+DB --> Validator : No existing application
+deactivate DB
+
+Validator -> DB : Check student eligibility (GPA, etc.)
+activate DB
+DB --> Validator : Student eligible
+deactivate DB
+
+Validator --> API : Validation passed
+deactivate Validator
+
+API -> AppService : createApplication(data)
+activate AppService
+
+AppService -> DB : BEGIN TRANSACTION
+activate DB
+
+AppService -> DB : INSERT INTO applications
+DB --> AppService : Application created (ID: 456)
+
+AppService -> DB : Store uploaded files
+DB --> AppService : Files stored
+
+AppService -> DB : COMMIT TRANSACTION
+deactivate DB
+
+AppService -> NotifService : sendApplicationConfirmation()
+activate NotifService
+
+NotifService -> DB : Create notification for student
+activate DB
+DB --> NotifService : Notification saved
+deactivate DB
+
+NotifService --> AppService : Confirmation sent
+deactivate NotifService
+
+AppService -> NotifService : notifyCompany(posting_id)
+activate NotifService
+
+NotifService -> DB : Get company admin for posting
+activate DB
+DB --> NotifService : Company admin info
+deactivate DB
+
+NotifService -> DB : Create notification for company
+activate DB
+DB --> NotifService : Notification saved
+deactivate DB
+
+NotifService --> Company : New Application Notification
+deactivate NotifService
+
+AppService --> API : Application submitted successfully
+deactivate AppService
+
+API --> UI : 201 Created (application data)
+deactivate API
+
+UI --> Student : Show success message\n"Application Submitted!"
+deactivate UI
+
+== View Application Status ==
+
+Student -> UI : Go to My Applications
+activate UI
+
+UI -> API : GET /api/students/{id}/applications
+activate API
+
+API -> DB : Query student's applications
+activate DB
+DB --> API : Return applications list
+deactivate DB
+
+API --> UI : 200 OK (applications)
+deactivate API
+
+UI --> Student : Display application status:\n"Pending Review"
+deactivate UI
+
+@enduml
+

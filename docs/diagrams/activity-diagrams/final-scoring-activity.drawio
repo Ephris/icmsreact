@@ -1,0 +1,366 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T12:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" type="device">
+  <diagram name="ICMS Final Scoring Activity Diagram" id="final-scoring-activity-diagram">
+    <mxGraphModel dx="1100" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" background="#000000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="title" value="ICMS - Complete Internship Evaluation (Final Scoring) Activity Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="114" y="20" width="600" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- FRAME -->
+        <mxCell id="frame" value="ICMS" style="shape=umlFrame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#DC143C;fillColor=none;fontStyle=1;fontSize=12;fontColor=#FFFFFF;width=60;height=25;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="747" height="1080" as="geometry" />
+        </mxCell>
+
+        <!-- INITIAL STATE -->
+        <mxCell id="initial" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeColor=#DC143C;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="399" y="90" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-init" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="120" as="sourcePoint" />
+            <mxPoint x="414" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Analytics Submitted by Supervisor -->
+        <mxCell id="state-analytics-ready" value="Analytics Submitted by Supervisor&#xa;(Awaiting Evaluation)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="289" y="155" width="250" height="45" as="geometry" />
+        </mxCell>
+        
+        <!-- FORK for parallel evaluation -->
+        <mxCell id="fork-bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DC143C;strokeColor=#DC143C;" vertex="1" parent="1">
+          <mxGeometry x="170" y="215" width="490" height="4" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-to-fork" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="200" as="sourcePoint" />
+            <mxPoint x="414" y="215" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ========== ADVISOR LANE (LEFT) ========== -->
+        
+        <mxCell id="lane-advisor" value="Faculty Advisor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=3;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="140" y="225" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="219" as="sourcePoint" />
+            <mxPoint x="200" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="state-advisor-view" value="View Pending&#xa;Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="260" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="300" as="sourcePoint" />
+            <mxPoint x="200" y="335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="state-advisor-select" value="Select Analytics&#xa;to Evaluate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="335" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="375" as="sourcePoint" />
+            <mxPoint x="200" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="state-advisor-enter" value="Enter Score,&#xa;Score Out Of,&#xa;Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="410" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="460" as="sourcePoint" />
+            <mxPoint x="200" y="495" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- DECISION: Advisor Score Valid? -->
+        <mxCell id="decision-advisor-valid" value="Score ≤&#xa;Out Of?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="495" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-no" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-advisor-valid">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="525" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-advisor-no" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="505" width="25" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-advisor-error" value="Error:&#xa;Invalid" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="507" width="55" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-loop" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="state-advisor-enter">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="82" y="507" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="82" y="435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arr-advisor-yes" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-advisor-valid">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-advisor-yes" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="205" y="560" width="25" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-advisor-save" value="Save Advisor Score&#xa;to Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="590" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-advisor-down" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="630" as="sourcePoint" />
+            <mxPoint x="200" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ========== DEPT HEAD LANE (RIGHT) ========== -->
+        
+        <mxCell id="lane-depthead" value="Department Head" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=3;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="570" y="225" width="120" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="219" as="sourcePoint" />
+            <mxPoint x="630" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="state-depthead-view" value="View Pending&#xa;Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="260" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="300" as="sourcePoint" />
+            <mxPoint x="630" y="335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="state-depthead-select" value="Select Analytics&#xa;to Evaluate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="335" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="375" as="sourcePoint" />
+            <mxPoint x="630" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="state-depthead-enter" value="Enter Score,&#xa;Score Out Of,&#xa;Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="410" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="460" as="sourcePoint" />
+            <mxPoint x="630" y="495" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- DECISION: Dept Head Score Valid? -->
+        <mxCell id="decision-depthead-valid" value="Score ≤&#xa;Out Of?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="495" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-no" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-depthead-valid">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="525" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-depthead-no" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="505" width="25" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-depthead-error" value="Error:&#xa;Invalid" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="507" width="55" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-loop" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="state-depthead-enter">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="747" y="507" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="747" y="435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arr-depthead-yes" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-depthead-valid">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-depthead-yes" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="635" y="560" width="25" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-depthead-save" value="Save Dept Head&#xa;Score to Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="590" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-depthead-down" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="630" as="sourcePoint" />
+            <mxPoint x="630" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- JOIN BAR -->
+        <mxCell id="join-bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DC143C;strokeColor=#DC143C;" vertex="1" parent="1">
+          <mxGeometry x="170" y="710" width="490" height="4" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-from-join" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="714" as="sourcePoint" />
+            <mxPoint x="414" y="755" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DECISION: Both Scores Submitted? -->
+        <mxCell id="decision-both" value="Both Scores&#xa;Submitted?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="755" width="120" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-both-no" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-both">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-both-no" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="770" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-wait" value="Wait for&#xa;Other Score" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="770" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-both-yes" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-both">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="865" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-both-yes" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="830" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- DECISION: Sum = 100? -->
+        <mxCell id="decision-sum" value="Out Of Sum&#xa;= 100?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#DC143C;strokeWidth=2;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="865" width="120" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-sum-no" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-sum">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-sum-no" value="No" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="545" y="880" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="state-sum-error" value="Error: Sum must&#xa;equal 100" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="880" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-sum-yes" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="decision-sum">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="965" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-sum-yes" value="Yes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="419" y="940" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- STATE: Calculate Final Score -->
+        <mxCell id="state-calc" value="Calculate Final Score&#xa;= advisor_score + dept_head_score" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="299" y="965" width="230" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-calc" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1010" as="sourcePoint" />
+            <mxPoint x="414" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- STATE: Schedule Deactivation -->
+        <mxCell id="state-deactivate" value="Schedule Student&#xa;Account Deactivation&#xa;(+30 days)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="314" y="1040" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-deactivate" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1090" as="sourcePoint" />
+            <mxPoint x="414" y="1110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Merge errors and waiting -->
+        <mxCell id="arr-wait-down" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="810" as="sourcePoint" />
+            <mxPoint x="190" y="1110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arr-error-down" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="920" as="sourcePoint" />
+            <mxPoint x="640" y="1110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Horizontal merge -->
+        <mxCell id="merge-line" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="1110" as="sourcePoint" />
+            <mxPoint x="640" y="1110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow to final -->
+        <mxCell id="arr-to-final" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#DC143C;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1110" as="sourcePoint" />
+            <mxPoint x="414" y="1125" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- FINAL STATE -->
+        <mxCell id="final-outer" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;strokeColor=#DC143C;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="399" y="1125" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="final-inner" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#DC143C;strokeColor=#DC143C;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="406" y="1132" width="16" height="16" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

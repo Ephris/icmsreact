@@ -1,0 +1,393 @@
+<mxfile host="app.diagrams.net" modified="2026-01-12T00:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" etag="icms-proposed-arch" type="device">
+  <diagram id="proposed-software-architecture" name="ICMS Proposed Software Architecture">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="ICMS Proposed Software Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Three-tier Client-Server Architecture + MVC Pattern" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=2;fontColor=#4a5568;" vertex="1" parent="1">
+          <mxGeometry x="400" y="55" width="400" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- TIER 1: PRESENTATION TIER (VIEW) -->
+        <mxCell id="tier1-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="1100" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="tier1-label" value="TIER 1: PRESENTATION TIER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1a365d;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="280" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="tier1-sublabel" value="(Client Layer)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#4a5568;" vertex="1" parent="1">
+          <mxGeometry x="330" y="110" width="100" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- MVC VIEW Label -->
+        <mxCell id="mvc-view-badge" value="MVC: VIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a365d;strokeColor=#1a365d;fontStyle=1;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="110" width="110" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Presentation Tier Components -->
+        <mxCell id="browser" value="Web Browser&#xa;(Chrome, Firefox, Edge)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="react" value="React 19&#xa;+ TypeScript" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0288d1;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tailwind" value="Tailwind CSS 4&#xa;+ shadcn/ui" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#38bdf8;strokeColor=#0284c7;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="400" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="inertia-client" value="Inertia.js&#xa;Client Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9333ea;strokeColor=#7c3aed;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="550" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="echo-client" value="Laravel Echo&#xa;(WebSocket Client)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=#16a34a;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="700" y="150" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="charts" value="Recharts&#xa;(Visualization)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f97316;strokeColor=#ea580c;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="860" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="icons" value="Lucide&#xa;Icons" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbbf24;strokeColor=#d97706;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="150" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- User Roles in Presentation -->
+        <mxCell id="roles-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f4fd;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="1010" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="roles-label" value="User Roles:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#1a365d;" vertex="1" parent="1">
+          <mxGeometry x="90" y="230" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="role1" value="Student" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="165" y="230" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="role2" value="Faculty Advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="245" y="230" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="role3" value="Company Supervisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="230" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="role4" value="Company Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="230" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="role5" value="Coordinator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="590" y="230" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="role6" value="Dept. Head" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="230" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="role7" value="Administrator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1976d2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="765" y="230" width="85" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Connection Arrow Tier 1 to Tier 2 -->
+        <mxCell id="arrow-tier1-tier2" value="HTTP/XHR Requests (Inertia Protocol)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#1a1a2e;fontStyle=1;fontSize=11;" edge="1" parent="1">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint x="600" y="280" as="sourcePoint" />
+            <mxPoint x="600" y="320" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- TIER 2: APPLICATION TIER (CONTROLLER + MODEL) -->
+        <mxCell id="tier2-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="1100" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="tier2-label" value="TIER 2: APPLICATION TIER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1e3a2f;" vertex="1" parent="1">
+          <mxGeometry x="70" y="330" width="260" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="tier2-sublabel" value="(Server Layer - Laravel 12)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#4a5568;" vertex="1" parent="1">
+          <mxGeometry x="310" y="330" width="180" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- MVC CONTROLLER Section -->
+        <mxCell id="controller-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="70" y="365" width="520" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="mvc-controller-badge" value="MVC: CONTROLLER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#92400e;strokeColor=#92400e;fontStyle=1;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="375" width="130" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Controller Components -->
+        <mxCell id="routes" value="Routes&#xa;(web.php, auth.php)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff6b6b;strokeColor=#c92a2a;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="90" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="middleware" value="Middleware&#xa;(Auth, CSRF, Role)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffa94d;strokeColor=#e8590c;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="220" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="controllers" value="Role-Based&#xa;Controllers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#748ffc;strokeColor=#4c6ef5;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="350" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="inertia-server" value="Inertia.js&#xa;Server Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9333ea;strokeColor=#7c3aed;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="460" y="415" width="110" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Controller Arrows -->
+        <mxCell id="ctrl-arrow1" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="440" as="sourcePoint" />
+            <mxPoint x="220" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ctrl-arrow2" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="440" as="sourcePoint" />
+            <mxPoint x="350" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ctrl-arrow3" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="440" as="sourcePoint" />
+            <mxPoint x="455" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Service Layer -->
+        <mxCell id="service-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="480" width="480" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="service-label" value="Service Layer:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="100" y="485" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="svc1" value="NotificationService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="100" y="505" width="105" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="svc2" value="AuditLogger" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="215" y="505" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="svc3" value="FileValidator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="305" y="505" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="svc4" value="ContactsResolver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#ef6c00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="395" y="505" width="100" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Real-time Box -->
+        <mxCell id="realtime-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#2196f3;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="545" width="480" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="realtime-label" value="Real-time:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="550" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rt1" value="Laravel Events" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1976d2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="165" y="555" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rt2" value="Pusher Broadcasting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1976d2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="265" y="555" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rt3" value="WebSocket Channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;strokeColor=#1976d2;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="385" y="555" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- MVC MODEL Section -->
+        <mxCell id="model-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="610" y="365" width="520" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="mvc-model-badge" value="MVC: MODEL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e3a2f;strokeColor=#1e3a2f;fontStyle=1;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="620" y="375" width="100" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Model Components -->
+        <mxCell id="eloquent-label" value="Eloquent ORM Models (app/Models/)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="620" y="405" width="230" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Model Grid -->
+        <mxCell id="model1" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="630" y="430" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model2" value="Student" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="710" y="430" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model3" value="Company" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="790" y="430" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model4" value="Department" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="870" y="430" width="75" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model5" value="Posting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="955" y="430" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model6" value="Application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="430" width="75" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model7" value="Form" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="630" y="468" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model8" value="Message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="710" y="468" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model9" value="Conversation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="790" y="468" width="80" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model10" value="Notification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="880" y="468" width="75" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model11" value="Feedback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="965" y="468" width="70" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model12" value="Letter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#43a047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="468" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="model-more" value="+ 12 more models..." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;fontColor=#4a5568;" vertex="1" parent="1">
+          <mxGeometry x="630" y="500" width="120" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Model Features -->
+        <mxCell id="model-features" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="525" width="480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mf-label" value="Model Features:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="640" y="530" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mf1" value="Relationships" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="650" y="555" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mf2" value="Validation Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="740" y="555" width="90" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mf3" value="Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="840" y="555" width="85" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mf4" value="Query Scopes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="935" y="555" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="mf5" value="Events" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="555" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow Controller to Model -->
+        <mxCell id="arrow-ctrl-model" value="Query / Business Logic" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1a1a2e;fontStyle=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry x="0.05" relative="1" as="geometry">
+            <mxPoint x="590" y="480" as="sourcePoint" />
+            <mxPoint x="610" y="480" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Connection Arrow Tier 2 to Tier 3 -->
+        <mxCell id="arrow-tier2-tier3" value="Eloquent ORM Queries (SQL)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#1a1a2e;fontStyle=1;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="620" as="sourcePoint" />
+            <mxPoint x="600" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- TIER 3: DATA TIER -->
+        <mxCell id="tier3-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="660" width="1100" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="tier3-label" value="TIER 3: DATA TIER" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#7f1d1d;" vertex="1" parent="1">
+          <mxGeometry x="70" y="670" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="tier3-sublabel" value="(Data Layer - Persistent Storage)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#4a5568;" vertex="1" parent="1">
+          <mxGeometry x="250" y="670" width="220" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Tier Components -->
+        <mxCell id="mysql" value="MySQL / MariaDB&#xa;(Primary Database)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="705" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" value="File Storage&#xa;(Documents, Images, Resumes)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="705" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cache" value="Cache Layer&#xa;(Sessions, Query Cache)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="705" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="logs" value="Audit Logs&#xa;(Activity Trail)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="705" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pusher" value="Pusher Cloud&#xa;(Real-time Events)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ef9a9a;strokeColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="705" width="130" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- WebSocket Arrow (Real-time) -->
+        <mxCell id="ws-arrow" value="WebSocket&#xa;(Real-time)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#22c55e;fontStyle=1;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry x="0.15" relative="1" as="geometry">
+            <mxPoint x="1065" y="705" as="sourcePoint" />
+            <mxPoint x="1065" y="210" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1130" y="705" />
+              <mxPoint x="1130" y="210" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="810" width="1100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="Legend:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="820" width="60" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="130" y="825" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1-text" value="Presentation Tier (View)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="155" y="825" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="295" y="825" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2-text" value="Controller Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="825" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;" vertex="1" parent="1">
+          <mxGeometry x="430" y="825" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3-text" value="Model Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="455" y="825" width="80" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="545" y="825" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4-text" value="Data Tier" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="825" width="70" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg5-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9333ea;strokeColor=#7c3aed;" vertex="1" parent="1">
+          <mxGeometry x="650" y="825" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5-text" value="Inertia.js Bridge" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="675" y="825" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg6-line" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#22c55e;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="785" y="835" as="sourcePoint" />
+            <mxPoint x="830" y="835" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg6-text" value="Real-time WebSocket" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="840" y="825" width="120" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leg7-line" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#1a1a2e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="970" y="835" as="sourcePoint" />
+            <mxPoint x="1015" y="835" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg7-text" value="HTTP/Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="825" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Architecture Labels -->
+        <mxCell id="arch-label1" value="Three-tier&#xa;Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#4a5568;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="-15" y="430" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="arch-bracket" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;strokeColor=#4a5568;strokeWidth=2;size=0.5;rotation=180;" vertex="1" parent="1">
+          <mxGeometry x="25" y="100" width="20" height="690" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

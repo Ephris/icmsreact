@@ -1,0 +1,134 @@
+@startuml ICMS_Apply_Internship_Sequence
+!theme plain
+skinparam backgroundColor rgb(236, 202, 202)
+skinparam participant {
+    BackgroundColor #87CEEB
+    BorderColor #4A90A4
+    FontColor #000000
+}
+skinparam sequence {
+    ArrowColor #8B0000
+    LifeLineBorderColor #4A90A4
+    LifeLineBackgroundColor #E0E0E0
+}
+skinparam note {
+    BackgroundColor #FFFACD
+    BorderColor #8B8B00
+}
+
+title ICMS - Student Apply for Internship Sequence Diagram
+
+actor "Student\n(Job Seeker)" as Student
+participant "ICMS" as ICMS
+participant "Postings Page\n(postings.tsx)" as PostingsPage
+participant "Posting View\n(posting-view.tsx)" as PostingView
+participant "Application Form" as AppForm
+participant "StudentController" as Controller
+database "Database" as DB
+
+== Browse Postings ==
+
+Student -> ICMS : Start()
+activate ICMS
+
+ICMS -> PostingsPage : Display()
+activate PostingsPage
+
+PostingsPage -> Controller : GET /student/postings
+activate Controller
+
+Controller -> DB : Query open postings\n(status = 'open')
+activate DB
+DB --> Controller : Return postings list
+deactivate DB
+
+Controller --> PostingsPage : Return postings data
+deactivate Controller
+
+PostingsPage --> Student : Display postings list\n(Title, Company, Location,\nType, Deadline)
+
+== Select Posting ==
+
+Student -> PostingsPage : Select and click\n"View" button()
+deactivate PostingsPage
+
+PostingsPage -> PostingView : Navigate to\n/student/postings/{id}
+activate PostingView
+
+PostingView -> Controller : GET /student/postings/{id}
+activate Controller
+
+Controller -> DB : Query posting details
+activate DB
+DB --> Controller : Return posting
+deactivate DB
+
+Controller -> DB : Check application_letters\n(student_id, status='sent')
+activate DB
+DB --> Controller : Return letter status
+deactivate DB
+
+Controller --> PostingView : Return posting + letter status
+deactivate Controller
+
+== Check Application Letter ==
+
+alt No Application Letter
+    PostingView --> Student : Display error:\n"Application Letter Required"\n\nShow buttons:\n- "Check Application Letter Status"\n- "Update Profile"
+else Has Application Letter
+    PostingView -> AppForm : Display()
+    activate AppForm
+    
+    AppForm --> Student : Show Application Form:\n- Resume (required, PDF)\n- Cover Letter (optional)\n- Portfolio URL\n- Skills\n- Certifications
+
+    == Fill Application ==
+    
+    Student -> AppForm : Fill information details()\n- Upload Resume\n- Add Cover Letter\n- Enter Portfolio URL\n- Add Skills
+    
+    Student -> AppForm : Click "Apply Now" button()
+    
+    AppForm -> Controller : POST /student/postings/apply\n(posting_id, resume, cover_letter,\nportfolio, skills, certifications)
+    activate Controller
+    
+    == Validate Application ==
+    
+    Controller -> Controller : Validate()\n- Resume required\n- File size <= 2MB\n- PDF format only
+    
+    Controller -> DB : Verify()\nCheck deadline not passed
+    activate DB
+    DB --> Controller : Deadline OK
+    deactivate DB
+    
+    Controller -> DB : Check duplicate application
+    activate DB
+    DB --> Controller : No duplicate
+    deactivate DB
+    
+    Controller -> DB : Check GPA requirement
+    activate DB
+    DB --> Controller : GPA OK
+    deactivate DB
+    
+    alt Invalid Syntax (validation failed)
+        Controller --> AppForm : incorrect validation()
+        AppForm --> Student : Display error message
+    else Valid Syntax
+        Controller -> DB : Store()\nINSERT INTO applications\n(student_id, posting_id,\nresume, status='pending')
+        activate DB
+        DB --> Controller : Response()\nApplication created
+        deactivate DB
+        
+        Controller -> Controller : NotificationService:\nNotify company admin
+        
+        Controller --> AppForm : Response()\nSuccess
+        deactivate Controller
+        
+        AppForm --> Student : Display successful message()\n"Application submitted\nsuccessfully"
+        deactivate AppForm
+        deactivate PostingView
+        deactivate ICMS
+    end
+end
+
+@enduml
+

@@ -1,0 +1,1325 @@
+digraph "G" {
+style="filled"
+bgcolor="#F7F7F7"
+fontsize="12"
+labelloc="t"
+concentrate="1"
+splines="polyline"
+overlap=""
+nodesep="1"
+rankdir="LR"
+pad="0.5"
+ranksep="2"
+esep="1"
+fontname="Helvetica Neue"
+appmodelsadvisorassignment:advisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+advisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsadvisorassignment:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsadvisorassignment:department_id -> appmodelsdepartment:department_id [
+label=" "
+xlabel="BelongsTo
+department"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsapplication:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsapplication:posting_id -> appmodelsposting:posting_id [
+label=" "
+xlabel="BelongsTo
+posting"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsapplication:last_updated_by -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+lastUpdatedBy"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsapplication:student_id -> appmodelsfeedback:student_id [
+label=" "
+xlabel="HasMany
+feedbacks"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsapplication:student_id -> appmodelsapplicationletter:student_id [
+label=" "
+xlabel="HasOne
+applicationLetter"
+color="#D62828"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="none"
+]
+appmodelsapplication:application_id -> appmodelsinternshipanalytics:application_id [
+label=" "
+xlabel="HasOne
+analytics"
+color="#D62828"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="none"
+]
+appmodelsapplicationletter:department_id -> appmodelsdepartment:department_id [
+label=" "
+xlabel="BelongsTo
+department"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsapplicationletter:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsapplicationletter:generated_by -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+generatedBy"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelscompany -> appmodelsuser [
+label=" "
+xlabel="HasOneThrough
+admin"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelscompany:company_id -> appmodelscompanysupervisorassignment:company_id [
+label=" "
+xlabel="HasMany
+supervisorAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelscompany -> appmodelsuser [
+label=" "
+xlabel="HasManyThrough
+supervisors"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelscompanyadminassignment:company_id -> appmodelscompany:company_id [
+label=" "
+xlabel="BelongsTo
+company"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelscompanyadminassignment:user_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+user"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelscompanysupervisorassignment:supervisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+supervisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelscompanysupervisorassignment:company_id -> appmodelscompany:company_id [
+label=" "
+xlabel="BelongsTo
+company"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsconversation:created_by_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+creator"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsconversation:id -> appmodelsconversationparticipant:conversation_id [
+label=" "
+xlabel="HasMany
+participants"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsconversation:id -> appmodelsmessage:conversation_id [
+label=" "
+xlabel="HasMany
+messages"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsconversation:pinned_message_id -> appmodelsmessage:id [
+label=" "
+xlabel="BelongsTo
+pinned"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsconversationparticipant:conversation_id -> appmodelsconversation:id [
+label=" "
+xlabel="BelongsTo
+conversation"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsconversationparticipant:user_user_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+user"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsdepartment:dept_head_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+deptHead"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsdepartment:department_id -> appmodelsstudent:department_id [
+label=" "
+xlabel="HasMany
+students"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsdepartment:department_id -> appmodelsadvisorassignment:department_id [
+label=" "
+xlabel="HasMany
+advisorAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsdepartment:department_id -> appmodelsdepartmentheadassignment:department_id [
+label=" "
+xlabel="HasMany
+departmentHeadAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsdepartmentheadassignment:department_id -> appmodelsdepartment:department_id [
+label=" "
+xlabel="BelongsTo
+department"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsdepartmentheadassignment:user_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+user"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsfeedback:advisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+advisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsfeedback:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsform:advisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+advisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsform:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsform:supervisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+supervisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsinternshipanalytics:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsinternshipanalytics:application_id -> appmodelsapplication:application_id [
+label=" "
+xlabel="BelongsTo
+application"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsinternshipanalytics:supervisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+supervisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsinternshipanalytics:posting_id -> appmodelsposting:posting_id [
+label=" "
+xlabel="BelongsTo
+posting"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsinternshipanalytics:form_id -> appmodelsform:form_id [
+label=" "
+xlabel="BelongsTo
+form"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsletter:coordinator_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+coordinator"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsletter:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsmessage:conversation_id -> appmodelsconversation:id [
+label=" "
+xlabel="BelongsTo
+conversation"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsmessage:user_user_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+user"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsmessage:id -> appmodelsmessageattachment:message_id [
+label=" "
+xlabel="HasMany
+attachments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsmessageattachment:message_id -> appmodelsmessage:id [
+label=" "
+xlabel="BelongsTo
+message"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsnotification:user_user_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+user"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsnotification:sender_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+sender"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsposting:company_id -> appmodelscompany:company_id [
+label=" "
+xlabel="BelongsTo
+company"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsposting:supervisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+supervisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsposting:posting_id -> appmodelsapplication:posting_id [
+label=" "
+xlabel="HasMany
+applications"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsstudent:user_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+user"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsstudent:department_id -> appmodelsdepartment:department_id [
+label=" "
+xlabel="BelongsTo
+department"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsstudent:student_id -> appmodelsadvisorassignment:student_id [
+label=" "
+xlabel="HasMany
+advisorAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsstudent -> appmodelsuser [
+label=" "
+xlabel="HasManyThrough
+advisors"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsstudent:student_id -> appmodelsapplication:student_id [
+label=" "
+xlabel="HasMany
+applications"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsstudent:student_id -> appmodelsform:student_id [
+label=" "
+xlabel="HasMany
+forms"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsstudent:accepted_application_id -> appmodelsapplication:application_id [
+label=" "
+xlabel="BelongsTo
+acceptedApplication"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsstudent:student_id -> appmodelsapplicationletter:student_id [
+label=" "
+xlabel="HasOne
+applicationLetter"
+color="#D62828"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="none"
+]
+appmodelssupervisorassignment:supervisor_id -> appmodelsuser:user_id [
+label=" "
+xlabel="BelongsTo
+supervisor"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelssupervisorassignment:student_id -> appmodelsstudent:student_id [
+label=" "
+xlabel="BelongsTo
+student"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelssupervisorassignment:posting_id -> appmodelsposting:posting_id [
+label=" "
+xlabel="BelongsTo
+posting"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsuser:user_id -> appmodelsdepartmentheadassignment:user_id [
+label=" "
+xlabel="HasMany
+departmentHeadAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsuser:user_id -> appmodelsstudent:user_id [
+label=" "
+xlabel="HasOne
+student"
+color="#D62828"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="none"
+]
+appmodelsuser:user_id -> appmodelsadvisorassignment:advisor_id [
+label=" "
+xlabel="HasMany
+advisorAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsuser:user_id -> appmodelscompanyadminassignment:user_id [
+label=" "
+xlabel="HasMany
+companyAdminAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsuser -> appmodelscompany [
+label=" "
+xlabel="HasOneThrough
+assignedCompany"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsuser -> appmodelsstudent [
+label=" "
+xlabel="HasManyThrough
+assignedStudents"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsuser:department_id -> appmodelsdepartment:department_id [
+label=" "
+xlabel="BelongsTo
+department"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelsuser -> appmodelsdepartment [
+label=" "
+xlabel="HasOneThrough
+assignedDepartment"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsuser:user_id -> appmodelscompanysupervisorassignment:supervisor_id [
+label=" "
+xlabel="HasMany
+supervisorAssignments"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsuser -> appmodelscompany [
+label=" "
+xlabel="HasManyThrough
+assignedCompaniesAsSupervisor"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsuser:user_id -> appmodelsform:advisor_id [
+label=" "
+xlabel="HasMany
+forms"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsuser:user_id -> appmodelsform:supervisor_id [
+label=" "
+xlabel="HasMany
+approvedForms"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+"appmodelsadvisorassignment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">AdvisorAssignment</font></td></tr>
+<tr width="100%"><td port="assignment_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >assignment_id (bigint)</font></td></tr>
+<tr width="100%"><td port="advisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >advisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="assigned_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >assigned_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsapplication" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Application</font></td></tr>
+<tr width="100%"><td port="application_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >application_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="posting_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >posting_id (bigint)</font></td></tr>
+<tr width="100%"><td port="resume" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >resume (text)</font></td></tr>
+<tr width="100%"><td port="cover_letter" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >cover_letter (text)</font></td></tr>
+<tr width="100%"><td port="cover_letter_path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >cover_letter_path (varchar)</font></td></tr>
+<tr width="100%"><td port="portfolio" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >portfolio (text)</font></td></tr>
+<tr width="100%"><td port="skills" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >skills (json)</font></td></tr>
+<tr width="100%"><td port="certifications" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >certifications (json)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="accepted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >accepted_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="feedback" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >feedback (text)</font></td></tr>
+<tr width="100%"><td port="student_approved_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_approved_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="offer_expiration" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >offer_expiration (timestamp)</font></td></tr>
+<tr width="100%"><td port="submitted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >submitted_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="source" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >source (varchar)</font></td></tr>
+<tr width="100%"><td port="last_updated_by" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >last_updated_by (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsapplicationletter" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">ApplicationLetter</font></td></tr>
+<tr width="100%"><td port="letter_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >letter_id (bigint)</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="ref_number" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >ref_number (varchar)</font></td></tr>
+<tr width="100%"><td port="start_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >start_date (date)</font></td></tr>
+<tr width="100%"><td port="end_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >end_date (date)</font></td></tr>
+<tr width="100%"><td port="file_path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >file_path (varchar)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="sent_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >sent_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="viewed_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >viewed_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="generated_by" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >generated_by (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelscompany" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Company</font></td></tr>
+<tr width="100%"><td port="company_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >company_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+<tr width="100%"><td port="industry" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >industry (varchar)</font></td></tr>
+<tr width="100%"><td port="location" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >location (varchar)</font></td></tr>
+<tr width="100%"><td port="website" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >website (varchar)</font></td></tr>
+<tr width="100%"><td port="company_size" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >company_size (varchar)</font></td></tr>
+<tr width="100%"><td port="founded_year" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >founded_year (year)</font></td></tr>
+<tr width="100%"><td port="contact_email" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >contact_email (varchar)</font></td></tr>
+<tr width="100%"><td port="linkedin_url" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >linkedin_url (varchar)</font></td></tr>
+<tr width="100%"><td port="logo" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >logo (varchar)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelscompanyadminassignment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">CompanyAdminAssignment</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="company_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >company_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelscompanysupervisorassignment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">CompanySupervisorAssignment</font></td></tr>
+<tr width="100%"><td port="assignment_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >assignment_id (bigint)</font></td></tr>
+<tr width="100%"><td port="supervisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >supervisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="company_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >company_id (bigint)</font></td></tr>
+<tr width="100%"><td port="assigned_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >assigned_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsconversation" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Conversation</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="is_group" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >is_group (tinyint)</font></td></tr>
+<tr width="100%"><td port="type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >type (enum)</font></td></tr>
+<tr width="100%"><td port="title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >title (varchar)</font></td></tr>
+<tr width="100%"><td port="created_by_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_by_id (bigint)</font></td></tr>
+<tr width="100%"><td port="last_message_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >last_message_id (bigint)</font></td></tr>
+<tr width="100%"><td port="pinned_message_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >pinned_message_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsconversationparticipant" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">ConversationParticipant</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="conversation_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >conversation_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="role" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >role (varchar)</font></td></tr>
+<tr width="100%"><td port="joined_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >joined_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="last_read_message_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >last_read_message_id (bigint)</font></td></tr>
+<tr width="100%"><td port="pinned" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >pinned (tinyint)</font></td></tr>
+<tr width="100%"><td port="muted" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >muted (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsdepartment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Department</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+<tr width="100%"><td port="code" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >code (varchar)</font></td></tr>
+<tr width="100%"><td port="faculty" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >faculty (varchar)</font></td></tr>
+<tr width="100%"><td port="dept_head_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >dept_head_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsdepartmentheadassignment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">DepartmentHeadAssignment</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsfeedback" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Feedback</font></td></tr>
+<tr width="100%"><td port="feedback_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >feedback_id (bigint)</font></td></tr>
+<tr width="100%"><td port="advisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >advisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="content" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >content (text)</font></td></tr>
+<tr width="100%"><td port="rating" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >rating (int)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsform" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Form</font></td></tr>
+<tr width="100%"><td port="form_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >form_id (bigint)</font></td></tr>
+<tr width="100%"><td port="advisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >advisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="supervisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >supervisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >title (varchar)</font></td></tr>
+<tr width="100%"><td port="file_path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >file_path (varchar)</font></td></tr>
+<tr width="100%"><td port="type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >type (enum)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="comments" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >comments (text)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelshomecontent" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">HomeContent</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >title (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+<tr width="100%"><td port="background_image" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >background_image (varchar)</font></td></tr>
+<tr width="100%"><td port="logo" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >logo (varchar)</font></td></tr>
+<tr width="100%"><td port="about_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >about_title (varchar)</font></td></tr>
+<tr width="100%"><td port="about_description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >about_description (text)</font></td></tr>
+<tr width="100%"><td port="inline_image" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >inline_image (varchar)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="phone" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >phone (varchar)</font></td></tr>
+<tr width="100%"><td port="email" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >email (varchar)</font></td></tr>
+<tr width="100%"><td port="location" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >location (varchar)</font></td></tr>
+<tr width="100%"><td port="social_media" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >social_media (json)</font></td></tr>
+<tr width="100%"><td port="carousel_images" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >carousel_images (json)</font></td></tr>
+<tr width="100%"><td port="carousel_texts" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >carousel_texts (json)</font></td></tr>
+<tr width="100%"><td port="background_color" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >background_color (varchar)</font></td></tr>
+<tr width="100%"><td port="postings_button_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >postings_button_text (varchar)</font></td></tr>
+<tr width="100%"><td port="about_us_button_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >about_us_button_text (varchar)</font></td></tr>
+<tr width="100%"><td port="login_button_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >login_button_text (varchar)</font></td></tr>
+<tr width="100%"><td port="trusted_logos" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >trusted_logos (json)</font></td></tr>
+<tr width="100%"><td port="footer_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >footer_text (text)</font></td></tr>
+<tr width="100%"><td port="footer_links" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >footer_links (json)</font></td></tr>
+<tr width="100%"><td port="success_stories" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >success_stories (json)</font></td></tr>
+<tr width="100%"><td port="header_height" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >header_height (varchar)</font></td></tr>
+<tr width="100%"><td port="navigation_menu" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >navigation_menu (json)</font></td></tr>
+<tr width="100%"><td port="hero_subtitle" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >hero_subtitle (text)</font></td></tr>
+<tr width="100%"><td port="hero_image_fit" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >hero_image_fit (varchar)</font></td></tr>
+<tr width="100%"><td port="about_image_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >about_image_text (text)</font></td></tr>
+<tr width="100%"><td port="statistics" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >statistics (json)</font></td></tr>
+<tr width="100%"><td port="our_story_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >our_story_text (text)</font></td></tr>
+<tr width="100%"><td port="our_mission" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >our_mission (text)</font></td></tr>
+<tr width="100%"><td port="our_vision" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >our_vision (text)</font></td></tr>
+<tr width="100%"><td port="why_it_works_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >why_it_works_title (text)</font></td></tr>
+<tr width="100%"><td port="why_it_works_subtitle" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >why_it_works_subtitle (text)</font></td></tr>
+<tr width="100%"><td port="why_it_works_cards" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >why_it_works_cards (json)</font></td></tr>
+<tr width="100%"><td port="system_roles_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >system_roles_title (text)</font></td></tr>
+<tr width="100%"><td port="system_roles_data" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >system_roles_data (json)</font></td></tr>
+<tr width="100%"><td port="how_it_works_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >how_it_works_title (text)</font></td></tr>
+<tr width="100%"><td port="how_it_works_subtitle" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >how_it_works_subtitle (text)</font></td></tr>
+<tr width="100%"><td port="how_it_works_steps" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >how_it_works_steps (json)</font></td></tr>
+<tr width="100%"><td port="workflows_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >workflows_title (text)</font></td></tr>
+<tr width="100%"><td port="workflows_data" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >workflows_data (json)</font></td></tr>
+<tr width="100%"><td port="why_choose_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >why_choose_title (text)</font></td></tr>
+<tr width="100%"><td port="why_choose_subtitle" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >why_choose_subtitle (text)</font></td></tr>
+<tr width="100%"><td port="why_choose_features" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >why_choose_features (json)</font></td></tr>
+<tr width="100%"><td port="success_stories_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >success_stories_title (text)</font></td></tr>
+<tr width="100%"><td port="success_stories_subtitle" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >success_stories_subtitle (text)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsinternshipanalytics" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">InternshipAnalytics</font></td></tr>
+<tr width="100%"><td port="analytics_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >analytics_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="application_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >application_id (bigint)</font></td></tr>
+<tr width="100%"><td port="supervisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >supervisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="posting_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >posting_id (bigint)</font></td></tr>
+<tr width="100%"><td port="posting_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >posting_title (varchar)</font></td></tr>
+<tr width="100%"><td port="company_name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >company_name (varchar)</font></td></tr>
+<tr width="100%"><td port="location" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >location (varchar)</font></td></tr>
+<tr width="100%"><td port="industry" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >industry (varchar)</font></td></tr>
+<tr width="100%"><td port="work_type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >work_type (varchar)</font></td></tr>
+<tr width="100%"><td port="start_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >start_date (date)</font></td></tr>
+<tr width="100%"><td port="end_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >end_date (date)</font></td></tr>
+<tr width="100%"><td port="duration_days" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >duration_days (int)</font></td></tr>
+<tr width="100%"><td port="form_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >form_id (bigint)</font></td></tr>
+<tr width="100%"><td port="form_type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >form_type (varchar)</font></td></tr>
+<tr width="100%"><td port="form_title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >form_title (varchar)</font></td></tr>
+<tr width="100%"><td port="supervisor_comments" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >supervisor_comments (text)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="submitted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >submitted_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="advisor_score" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >advisor_score (decimal)</font></td></tr>
+<tr width="100%"><td port="dept_head_score" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >dept_head_score (decimal)</font></td></tr>
+<tr width="100%"><td port="final_score" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >final_score (decimal)</font></td></tr>
+<tr width="100%"><td port="advisor_evaluation" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >advisor_evaluation (text)</font></td></tr>
+<tr width="100%"><td port="dept_head_evaluation" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >dept_head_evaluation (text)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="advisor_score_out_of" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >advisor_score_out_of (int)</font></td></tr>
+<tr width="100%"><td port="dept_head_score_out_of" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >dept_head_score_out_of (int)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsletter" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Letter</font></td></tr>
+<tr width="100%"><td port="letter_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >letter_id (bigint)</font></td></tr>
+<tr width="100%"><td port="coordinator_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >coordinator_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >title (varchar)</font></td></tr>
+<tr width="100%"><td port="file_path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >file_path (varchar)</font></td></tr>
+<tr width="100%"><td port="type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >type (enum)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsmessage" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Message</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="conversation_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >conversation_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="body" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >body (text)</font></td></tr>
+<tr width="100%"><td port="reply_to_message_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >reply_to_message_id (bigint)</font></td></tr>
+<tr width="100%"><td port="metadata" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >metadata (json)</font></td></tr>
+<tr width="100%"><td port="edited_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >edited_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsmessageattachment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">MessageAttachment</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="message_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >message_id (bigint)</font></td></tr>
+<tr width="100%"><td port="disk" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >disk (varchar)</font></td></tr>
+<tr width="100%"><td port="path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >path (varchar)</font></td></tr>
+<tr width="100%"><td port="filename" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >filename (varchar)</font></td></tr>
+<tr width="100%"><td port="mime" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >mime (varchar)</font></td></tr>
+<tr width="100%"><td port="size" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >size (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsmessageread" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">MessageRead</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="message_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >message_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="read_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >read_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsnotification" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Notification</font></td></tr>
+<tr width="100%"><td port="notification_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >notification_id (bigint)</font></td></tr>
+<tr width="100%"><td port="type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >type (varchar)</font></td></tr>
+<tr width="100%"><td port="data" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >data (text)</font></td></tr>
+<tr width="100%"><td port="read_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >read_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="sender_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >sender_id (bigint)</font></td></tr>
+<tr width="100%"><td port="title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >title (varchar)</font></td></tr>
+<tr width="100%"><td port="message" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >message (text)</font></td></tr>
+<tr width="100%"><td port="action_url" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >action_url (varchar)</font></td></tr>
+<tr width="100%"><td port="action_text" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >action_text (varchar)</font></td></tr>
+<tr width="100%"><td port="icon" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >icon (varchar)</font></td></tr>
+<tr width="100%"><td port="read" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >read (tinyint)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsposting" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Posting</font></td></tr>
+<tr width="100%"><td port="posting_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >posting_id (bigint)</font></td></tr>
+<tr width="100%"><td port="company_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >company_id (bigint)</font></td></tr>
+<tr width="100%"><td port="supervisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >supervisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="title" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >title (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+<tr width="100%"><td port="type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >type (enum)</font></td></tr>
+<tr width="100%"><td port="industry" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >industry (varchar)</font></td></tr>
+<tr width="100%"><td port="location" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >location (varchar)</font></td></tr>
+<tr width="100%"><td port="salary_range" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >salary_range (varchar)</font></td></tr>
+<tr width="100%"><td port="start_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >start_date (date)</font></td></tr>
+<tr width="100%"><td port="end_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >end_date (date)</font></td></tr>
+<tr width="100%"><td port="application_deadline" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >application_deadline (date)</font></td></tr>
+<tr width="100%"><td port="requirements" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >requirements (text)</font></td></tr>
+<tr width="100%"><td port="work_type" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >work_type (enum)</font></td></tr>
+<tr width="100%"><td port="benefits" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >benefits (text)</font></td></tr>
+<tr width="100%"><td port="experience_level" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >experience_level (enum)</font></td></tr>
+<tr width="100%"><td port="min_gpa" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >min_gpa (double)</font></td></tr>
+<tr width="100%"><td port="skills_required" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >skills_required (json)</font></td></tr>
+<tr width="100%"><td port="application_instructions" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >application_instructions (text)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsstudent" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Student</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="first_name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >first_name (varchar)</font></td></tr>
+<tr width="100%"><td port="last_name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >last_name (varchar)</font></td></tr>
+<tr width="100%"><td port="cgpa" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >cgpa (double)</font></td></tr>
+<tr width="100%"><td port="resume_path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >resume_path (varchar)</font></td></tr>
+<tr width="100%"><td port="profile_image_path" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >profile_image_path (varchar)</font></td></tr>
+<tr width="100%"><td port="portfolio_url" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >portfolio_url (varchar)</font></td></tr>
+<tr width="100%"><td port="skills" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >skills (json)</font></td></tr>
+<tr width="100%"><td port="certifications" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >certifications (json)</font></td></tr>
+<tr width="100%"><td port="year_of_study" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >year_of_study (varchar)</font></td></tr>
+<tr width="100%"><td port="university_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >university_id (varchar)</font></td></tr>
+<tr width="100%"><td port="bio" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >bio (text)</font></td></tr>
+<tr width="100%"><td port="accepted_application_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >accepted_application_id (bigint)</font></td></tr>
+<tr width="100%"><td port="linkedin_url" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >linkedin_url (varchar)</font></td></tr>
+<tr width="100%"><td port="expected_salary" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >expected_salary (varchar)</font></td></tr>
+<tr width="100%"><td port="notice_period" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >notice_period (varchar)</font></td></tr>
+<tr width="100%"><td port="preferred_locations" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >preferred_locations (json)</font></td></tr>
+<tr width="100%"><td port="graduation_year" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >graduation_year (year)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="profile_image" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >profile_image (varchar)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelssupervisorassignment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">SupervisorAssignment</font></td></tr>
+<tr width="100%"><td port="assignment_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >assignment_id (bigint)</font></td></tr>
+<tr width="100%"><td port="supervisor_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >supervisor_id (bigint)</font></td></tr>
+<tr width="100%"><td port="student_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >student_id (bigint)</font></td></tr>
+<tr width="100%"><td port="posting_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >posting_id (bigint)</font></td></tr>
+<tr width="100%"><td port="assigned_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >assigned_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsuser" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">User</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="username" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >username (varchar)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="first_name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >first_name (varchar)</font></td></tr>
+<tr width="100%"><td port="last_name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >last_name (varchar)</font></td></tr>
+<tr width="100%"><td port="specialization" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >specialization (varchar)</font></td></tr>
+<tr width="100%"><td port="email" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >email (varchar)</font></td></tr>
+<tr width="100%"><td port="role" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >role (enum)</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="phone" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >phone (varchar)</font></td></tr>
+<tr width="100%"><td port="gender" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >gender (enum)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (enum)</font></td></tr>
+<tr width="100%"><td port="account_deactivation_date" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >account_deactivation_date (date)</font></td></tr>
+<tr width="100%"><td port="created_by" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_by (bigint)</font></td></tr>
+<tr width="100%"><td port="avatar" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >avatar (varchar)</font></td></tr>
+<tr width="100%"><td port="email_verified_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >email_verified_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="password" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >password (varchar)</font></td></tr>
+<tr width="100%"><td port="remember_token" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >remember_token (varchar)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="deleted_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >deleted_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+}

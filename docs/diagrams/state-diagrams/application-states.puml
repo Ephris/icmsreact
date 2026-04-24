@@ -1,0 +1,131 @@
+@startuml Application_States
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam state {
+    BackgroundColor<<pending>> LightYellow
+    BackgroundColor<<review>> LightBlue
+    BackgroundColor<<positive>> LightGreen
+    BackgroundColor<<negative>> Pink
+    BackgroundColor<<final>> LightGray
+}
+
+title ICMS - Application Lifecycle States\nState Chart Diagram
+
+[*] --> Draft : Student starts\napplication
+
+state "Draft" as Draft {
+    Draft : Entry: Create draft record
+    Draft : Do: Allow editing
+    Draft : Exit: Validate form
+}
+
+Draft --> Pending : Submit Application
+
+state "Pending" as Pending <<pending>> {
+    Pending : Entry: Notify company
+    Pending : Do: Await review
+    Pending : Exit: Log status change
+}
+
+Pending --> UnderReview : Company opens\napplication
+Pending --> Withdrawn : Student withdraws
+
+state "Under Review" as UnderReview <<review>> {
+    UnderReview : Entry: Start review timer
+    UnderReview : Do: Company evaluates
+    UnderReview : Exit: Record decision
+}
+
+UnderReview --> Shortlisted : Meets initial criteria
+UnderReview --> Rejected : Does not meet criteria
+UnderReview --> Withdrawn : Student withdraws
+
+state "Shortlisted" as Shortlisted <<review>> {
+    Shortlisted : Entry: Notify student
+    Shortlisted : Do: Interview process
+    Shortlisted : Exit: Final decision
+}
+
+Shortlisted --> Accepted : Offer extended
+Shortlisted --> Rejected : Not selected
+Shortlisted --> Withdrawn : Student withdraws
+
+state "Accepted" as Accepted <<positive>> {
+    Accepted : Entry: Notify student
+    Accepted : Entry: Set offer expiration (120h)
+    Accepted : Do: Wait for student response
+    Accepted : Exit: Process student decision
+}
+
+Accepted --> Approved : Student accepts\nwithin window
+Accepted --> Declined : Student declines
+Accepted --> Expired : 120 hours passed
+
+state "Approved" as Approved <<positive>> {
+    Approved : Entry: Link to student record
+    Approved : Entry: Notify all stakeholders
+    Approved : Entry: Create analytics record
+    Approved : Do: Internship active
+    Approved : Exit: ---
+}
+
+state "Rejected" as Rejected <<negative>> {
+    Rejected : Entry: Send feedback to student
+    Rejected : Entry: Notify advisor
+    Rejected : Do: Archive application
+    Rejected : Exit: ---
+}
+
+state "Withdrawn" as Withdrawn <<final>> {
+    Withdrawn : Entry: Notify company
+    Withdrawn : Entry: Log reason
+    Withdrawn : Do: Archive
+    Withdrawn : Exit: ---
+}
+
+state "Declined" as Declined <<final>> {
+    Declined : Entry: Notify company
+    Declined : Entry: Free posting slot
+    Declined : Do: Archive
+    Declined : Exit: ---
+}
+
+state "Expired" as Expired <<final>> {
+    Expired : Entry: Auto-decline offer
+    Expired : Entry: Notify all parties
+    Expired : Do: Archive
+    Expired : Exit: ---
+}
+
+Approved --> [*] : Internship\ncompleted
+Rejected --> [*] : Archived
+Withdrawn --> [*] : Archived
+Declined --> [*] : Archived
+Expired --> [*] : Archived
+
+note right of Accepted
+    **Offer Expiration Rules:**
+    - 120 hours (5 days) to respond
+    - Student can accept only ONE offer
+    - Other accepted offers auto-decline
+    - Can contact coordinator for extension
+end note
+
+note left of Shortlisted
+    **Shortlist Actions:**
+    - Schedule interview
+    - Request additional documents
+    - Technical assessment
+    - Reference check
+end note
+
+note bottom of Approved
+    **Post-Approval:**
+    - Advisor notified
+    - Supervisor assigned
+    - Internship analytics initialized
+    - Other pending applications paused
+end note
+
+@enduml
+

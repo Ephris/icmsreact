@@ -1,0 +1,233 @@
+@startuml Login_Authentication
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activityShape roundedBox
+
+title ICMS - User Authentication Flow\nActivity Diagram
+
+|User|
+start
+
+:Access ICMS Login Page;
+
+|System|
+:Display Login Form;
+
+|User|
+:Enter Username/Email;
+:Enter Password;
+:Click "Login" Button;
+
+|System|
+:Receive Credentials;
+
+:Validate Input Format;
+
+if (Input Format Valid?) then (yes)
+    :Query User Database;
+    
+    if (User Exists?) then (yes)
+        :Retrieve User Record;
+        
+        if (Account Active?) then (yes)
+            :Verify Password Hash;
+            
+            if (Password Correct?) then (yes)
+                :Check Email Verification;
+                
+                if (Email Verified?) then (yes)
+                    :Create Session;
+                    :Generate Authentication Token;
+                    :Update Last Login Timestamp;
+                    :Log Login Activity;
+                    
+                    :Determine User Role;
+                    
+                    switch (User Role)
+                        case (Student)
+                            :Redirect to Student Dashboard;
+                        case (Company Admin)
+                            :Redirect to Company Dashboard;
+                        case (Supervisor)
+                            :Redirect to Supervisor Dashboard;
+                        case (Advisor)
+                            :Redirect to Advisor Dashboard;
+                        case (Coordinator)
+                            :Redirect to Coordinator Dashboard;
+                        case (Department Head)
+                            :Redirect to Dept Head Dashboard;
+                        case (Admin)
+                            :Redirect to Admin Dashboard;
+                    endswitch
+                    
+                    |User|
+                    :View Dashboard;
+                    :Access Role-Based Features;
+                    
+                    #LightGreen:Login Successful!;
+                    
+                else (no)
+                    |System|
+                    :Display "Email Not Verified" Message;
+                    :Offer Resend Verification Option;
+                    
+                    |User|
+                    if (Resend Verification?) then (yes)
+                        |System|
+                        :Generate New Verification Link;
+                        :Send Email;
+                        
+                        |User|
+                        :Check Email;
+                        :Click Verification Link;
+                        
+                        |System|
+                        :Verify Email;
+                        :Mark Email as Verified;
+                        :Redirect to Login;
+                    else (no)
+                        :Stay on Login Page;
+                    endif
+                endif
+                
+            else (no)
+                :Increment Failed Attempts;
+                
+                if (Failed Attempts >= 5?) then (yes)
+                    :Lock Account Temporarily;
+                    :Set Lockout Duration = 15 mins;
+                    :Log Security Event;
+                    
+                    |User|
+                    :View Account Locked Message;
+                    #Orange:Account Temporarily Locked;
+                    
+                else (no)
+                    :Display "Invalid Credentials";
+                    :Show Remaining Attempts;
+                    
+                    |User|
+                    :Retry Login;
+                endif
+            endif
+            
+        else (no)
+            :Check Account Status;
+            
+            switch (Account Status)
+                case (Suspended)
+                    :Display Suspension Message;
+                    :Show Contact Admin Info;
+                    #Red:Account Suspended;
+                case (Inactive)
+                    :Display Inactive Message;
+                    :Offer Reactivation;
+                case (Pending)
+                    :Display Pending Approval Message;
+                    #Yellow:Account Pending;
+            endswitch
+        endif
+        
+    else (no)
+        :Display "User Not Found";
+        :Suggest Registration;
+        
+        |User|
+        :Option to Try Again;
+        :Option to Contact Support;
+    endif
+    
+else (no)
+    :Display Validation Errors;
+    note right
+        - Empty fields
+        - Invalid email format
+        - Password too short
+    end note
+    
+    |User|
+    :Correct Input;
+    :Retry;
+endif
+
+' === PASSWORD RESET FLOW ===
+|User|
+if (Forgot Password?) then (yes)
+    :Click "Forgot Password";
+    
+    |System|
+    :Display Password Reset Form;
+    
+    |User|
+    :Enter Email Address;
+    :Submit Request;
+    
+    |System|
+    :Validate Email;
+    
+    if (Email Exists?) then (yes)
+        :Generate Reset Token;
+        :Set Token Expiry = 60 mins;
+        :Send Reset Email;
+        
+        |User|
+        :Check Email;
+        :Click Reset Link;
+        
+        |System|
+        if (Token Valid?) then (yes)
+            :Display New Password Form;
+            
+            |User|
+            :Enter New Password;
+            :Confirm New Password;
+            :Submit;
+            
+            |System|
+            if (Passwords Match?) then (yes)
+                :Hash New Password;
+                :Update User Record;
+                :Invalidate Reset Token;
+                :Send Confirmation Email;
+                :Redirect to Login;
+                
+                |User|
+                :Login with New Password;
+                #LightGreen:Password Reset Successful;
+                
+            else (no)
+                :Display Mismatch Error;
+            endif
+        else (no)
+            :Display Token Expired;
+            :Offer New Reset Request;
+        endif
+        
+    else (no)
+        :Display Generic Message;
+        note right
+            For security, don't
+            reveal if email exists
+        end note
+    endif
+endif
+
+' === LOGOUT FLOW ===
+|User|
+if (Logout?) then (yes)
+    :Click Logout;
+    
+    |System|
+    :Destroy Session;
+    :Invalidate Token;
+    :Log Logout Activity;
+    :Redirect to Login Page;
+    
+    |User|
+    #LightBlue:Logged Out Successfully;
+endif
+
+stop
+
+@enduml
+

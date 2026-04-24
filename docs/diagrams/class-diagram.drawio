@@ -1,0 +1,403 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T12:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" type="device">
+  <diagram name="ICMS Class Diagram" id="icms-class-diagram">
+    <mxGraphModel dx="1200" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="diagram-title" value="ICMS Class Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1f84b7;" vertex="1" parent="1">
+          <mxGeometry x="484" y="10" width="200" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 1: User, Student, Company, Department -->
+        
+        <!-- USER CLASS -->
+        <mxCell id="user-class" value="User" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="45" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="user-attrs" value="-user_id:int&#xa;-username:String&#xa;-email:String&#xa;-first_name:String&#xa;-last_name:String&#xa;-role:Enum&#xa;-department_id:int&#xa;-status:String&#xa;-avatar:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="user-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="user-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="user-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="user-methods" value="+login():Boolean&#xa;+logout():void&#xa;+updateProfile():Boolean" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="user-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- STUDENT CLASS -->
+        <mxCell id="student-class" value="Student" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="210" y="45" width="180" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="student-attrs" value="-student_id:int&#xa;-user_id:int&#xa;-department_id:int&#xa;-first_name:String&#xa;-last_name:String&#xa;-cgpa:float&#xa;-resume_path:String&#xa;-skills:Array&#xa;-year_of_study:int" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="student-class">
+          <mxGeometry y="22" width="180" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="student-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="student-class">
+          <mxGeometry y="137" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="student-methods" value="+apply():Application&#xa;+uploadResume():String&#xa;+getMatchingPostings():Collection" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="student-class">
+          <mxGeometry y="145" width="180" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- COMPANY CLASS -->
+        <mxCell id="company-class" value="Company" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="410" y="45" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="company-attrs" value="-company_id:int&#xa;-name:String&#xa;-description:Text&#xa;-industry:String&#xa;-location:String&#xa;-contact_email:String&#xa;-status:String&#xa;-logo:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="company-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="company-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="company-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="company-methods" value="+createPosting():Posting&#xa;+getApplications():Collection" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="company-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- DEPARTMENT CLASS -->
+        <mxCell id="department-class" value="Department" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="45" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="department-attrs" value="-department_id:int&#xa;-name:String&#xa;-description:Text&#xa;-code:String&#xa;-faculty:String&#xa;-dept_head_id:int&#xa;-status:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="department-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="department-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="department-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="department-methods" value="+getStudents():Collection&#xa;+assignHead():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="department-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 2: Posting, Application, Form, Letter -->
+
+        <!-- POSTING CLASS -->
+        <mxCell id="posting-class" value="Posting" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="240" width="180" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="posting-attrs" value="-posting_id:int&#xa;-company_id:int&#xa;-title:String&#xa;-description:Text&#xa;-type:String&#xa;-location:String&#xa;-salary_range:String&#xa;-status:String&#xa;-application_deadline:Date" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="posting-class">
+          <mxGeometry y="22" width="180" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="posting-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="posting-class">
+          <mxGeometry y="137" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="posting-methods" value="+publish():void&#xa;+close():void&#xa;+getApplications():Collection" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="posting-class">
+          <mxGeometry y="145" width="180" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- APPLICATION CLASS -->
+        <mxCell id="application-class" value="Application" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="240" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="application-attrs" value="-application_id:int&#xa;-student_id:int&#xa;-posting_id:int&#xa;-resume:String&#xa;-cover_letter:Text&#xa;-status:String&#xa;-accepted_at:DateTime&#xa;-feedback:Text" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="application-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="application-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="application-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="application-methods" value="+submit():void&#xa;+withdraw():void&#xa;+approve():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="application-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- FORM CLASS -->
+        <mxCell id="form-class" value="Form" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="410" y="240" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="form-attrs" value="-form_id:int&#xa;-advisor_id:int&#xa;-student_id:int&#xa;-supervisor_id:int&#xa;-title:String&#xa;-file_path:String&#xa;-type:String&#xa;-status:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="form-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="form-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="form-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="form-methods" value="+submit():void&#xa;+approve():void&#xa;+reject():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="form-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- LETTER CLASS -->
+        <mxCell id="letter-class" value="Letter" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="letter-attrs" value="-letter_id:int&#xa;-coordinator_id:int&#xa;-student_id:int&#xa;-title:String&#xa;-file_path:String&#xa;-type:String&#xa;-status:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="letter-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="letter-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="letter-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="letter-methods" value="+generate():void&#xa;+download():String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="letter-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 3: Notification, Conversation, Message, ApplicationLetter -->
+
+        <!-- NOTIFICATION CLASS -->
+        <mxCell id="notification-class" value="Notification" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="435" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="notification-attrs" value="-notification_id:int&#xa;-user_id:int&#xa;-sender_id:int&#xa;-type:String&#xa;-title:String&#xa;-message:Text&#xa;-read:Boolean&#xa;-read_at:DateTime" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="notification-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="notification-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="notification-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="notification-methods" value="+markAsRead():void&#xa;+send():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="notification-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- CONVERSATION CLASS -->
+        <mxCell id="conversation-class" value="Conversation" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="210" y="435" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="conversation-attrs" value="-id:int&#xa;-title:String&#xa;-type:String&#xa;-is_group:Boolean&#xa;-created_by_id:int&#xa;-last_message_id:int" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="conversation-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="conversation-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="conversation-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="conversation-methods" value="+addParticipant():void&#xa;+getMessages():Collection" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="conversation-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- MESSAGE CLASS -->
+        <mxCell id="message-class" value="Message" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="400" y="435" width="170" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="message-attrs" value="-id:int&#xa;-conversation_id:int&#xa;-user_id:int&#xa;-body:Text&#xa;-metadata:JSON&#xa;-edited_at:DateTime" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="message-class">
+          <mxGeometry y="22" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="message-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="message-class">
+          <mxGeometry y="137" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="message-methods" value="+send():void&#xa;+edit():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="message-class">
+          <mxGeometry y="145" width="170" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- APPLICATION LETTER CLASS -->
+        <mxCell id="appletter-class" value="ApplicationLetter" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="435" width="180" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="appletter-attrs" value="-letter_id:int&#xa;-department_id:int&#xa;-student_id:int&#xa;-ref_number:String&#xa;-file_path:String&#xa;-status:String&#xa;-start_date:Date&#xa;-end_date:Date" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="appletter-class">
+          <mxGeometry y="22" width="180" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="appletter-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="appletter-class">
+          <mxGeometry y="137" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="appletter-methods" value="+generate():void&#xa;+send():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="appletter-class">
+          <mxGeometry y="145" width="180" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 4: Feedback, InternshipAnalytics, AdvisorAssignment, CompanyAdminAssignment, DeptHeadAssignment -->
+
+        <!-- FEEDBACK CLASS -->
+        <mxCell id="feedback-class" value="Feedback" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="630" width="140" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-attrs" value="-feedback_id:int&#xa;-advisor_id:int&#xa;-student_id:int&#xa;-content:Text&#xa;-rating:int" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="feedback-class">
+          <mxGeometry y="22" width="140" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="feedback-class">
+          <mxGeometry y="117" width="140" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-methods" value="+submit():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="feedback-class">
+          <mxGeometry y="125" width="140" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- INTERNSHIP ANALYTICS CLASS -->
+        <mxCell id="analytics-class" value="InternshipAnalytics" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="175" y="630" width="160" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics-attrs" value="-analytics_id:int&#xa;-student_id:int&#xa;-application_id:int&#xa;-company_name:String&#xa;-duration_days:int&#xa;-final_score:float&#xa;-status:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="analytics-class">
+          <mxGeometry y="22" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="analytics-class">
+          <mxGeometry y="117" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics-methods" value="+calculate():void&#xa;+generateReport():Report" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="analytics-class">
+          <mxGeometry y="125" width="160" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ADVISOR ASSIGNMENT CLASS -->
+        <mxCell id="advisorassign-class" value="AdvisorAssignment" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="630" width="155" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="advisorassign-attrs" value="-assignment_id:int&#xa;-advisor_id:int&#xa;-student_id:int&#xa;-department_id:int&#xa;-status:String" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="advisorassign-class">
+          <mxGeometry y="22" width="155" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="advisorassign-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="advisorassign-class">
+          <mxGeometry y="117" width="155" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="advisorassign-methods" value="+assign():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="advisorassign-class">
+          <mxGeometry y="125" width="155" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- COMPANY ADMIN ASSIGNMENT CLASS -->
+        <mxCell id="companyadmin-class" value="CompanyAdminAssignment" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="630" width="160" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="companyadmin-attrs" value="-id:int&#xa;-company_id:int&#xa;-user_id:int" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="companyadmin-class">
+          <mxGeometry y="22" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="companyadmin-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="companyadmin-class">
+          <mxGeometry y="117" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="companyadmin-methods" value="+assign():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="companyadmin-class">
+          <mxGeometry y="125" width="160" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- DEPARTMENT HEAD ASSIGNMENT CLASS -->
+        <mxCell id="depthead-class" value="DeptHeadAssignment" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=22;fillColor=#1f84b7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006EAF;fontColor=#ffffff;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="695" y="630" width="160" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="depthead-attrs" value="-id:int&#xa;-department_id:int&#xa;-user_id:int" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="depthead-class">
+          <mxGeometry y="22" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="depthead-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006EAF;" vertex="1" parent="depthead-class">
+          <mxGeometry y="117" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="depthead-methods" value="+assign():void" style="text;strokeColor=#006EAF;fillColor=#E6F2FF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="depthead-class">
+          <mxGeometry y="125" width="160" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- RELATIONSHIPS -->
+
+        <!-- User to Student -->
+        <mxCell id="rel-user-student" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-attrs" target="student-attrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-user-student-label" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-user-student">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- User to Department -->
+        <mxCell id="rel-user-dept" value="*" style="endArrow=open;html=1;endSize=8;startArrow=none;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-class" target="department-attrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-user-dept-label" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-user-dept">
+          <mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Student to Department -->
+        <mxCell id="rel-student-dept" value="*" style="endArrow=open;html=1;endSize=8;startArrow=none;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="student-attrs" target="department-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-student-dept-label" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-student-dept">
+          <mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Company to Posting -->
+        <mxCell id="rel-company-posting" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="company-class" target="posting-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="495" y="228" />
+              <mxPoint x="110" y="228" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-company-posting-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-company-posting">
+          <mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Posting to Application -->
+        <mxCell id="rel-posting-app" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="posting-attrs" target="application-attrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-posting-app-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-posting-app">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Student to Application -->
+        <mxCell id="rel-student-app" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="student-class" target="application-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-student-app-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-student-app">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Student to Form -->
+        <mxCell id="rel-student-form" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="student-class" target="form-attrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-student-form-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-student-form">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- User to Notification -->
+        <mxCell id="rel-user-notif" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-class" target="notification-attrs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10" y="220" />
+              <mxPoint x="10" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-user-notif-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-user-notif">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Conversation to Message -->
+        <mxCell id="rel-conv-msg" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="conversation-attrs" target="message-attrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-conv-msg-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-conv-msg">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Application to Analytics -->
+        <mxCell id="rel-app-analytics" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="application-class" target="analytics-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-app-analytics-label" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-app-analytics">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Student to Feedback -->
+        <mxCell id="rel-student-feedback" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="student-class" target="feedback-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="620" />
+              <mxPoint x="90" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-student-feedback-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-student-feedback">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Student to ApplicationLetter -->
+        <mxCell id="rel-student-appletter" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="student-class" target="appletter-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="228" />
+              <mxPoint x="680" y="228" />
+              <mxPoint x="680" y="435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-student-appletter-label" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-student-appletter">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Department to DeptHeadAssignment -->
+        <mxCell id="rel-dept-depthead" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="department-class" target="depthead-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-dept-depthead-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-dept-depthead">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Company to CompanyAdminAssignment -->
+        <mxCell id="rel-company-admin" value="1" style="endArrow=open;html=1;endSize=8;startArrow=diamondThin;startSize=10;startFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1f84b7;strokeWidth=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="company-class" target="companyadmin-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="228" />
+              <mxPoint x="600" y="228" />
+              <mxPoint x="600" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-company-admin-label" value="*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel-company-admin">
+          <mxGeometry x="0.7" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

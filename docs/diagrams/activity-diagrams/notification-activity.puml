@@ -1,0 +1,113 @@
+@startuml ICMS_Notification_Activity
+!theme plain
+skinparam backgroundColor rgb(230, 196, 196)
+skinparam activity {
+    BackgroundColor #90EE90
+    BorderColor #228B22
+    FontColor #000000
+}
+skinparam activityDiamond {
+    BackgroundColor #4169E1
+    BorderColor #4A90A4
+    FontColor #FFFFFF
+}
+skinparam arrow {
+    Color #4169E1
+}
+skinparam note {
+    BackgroundColor #FFFACD
+    BorderColor #8B8B00
+}
+
+title ICMS - View Notification Activity Diagram
+
+|#LightCyan|User|
+start
+note right: Initial State
+
+:initiate file;
+note right
+  Click notification bell icon
+  in header/navbar
+end note
+
+|#LightGreen|System|
+:Check notifications;
+
+if (File notification exists?) then (File is Exist)
+    
+    :Notify the user;
+    note right
+      - Update notification badge
+      - Show unread count
+      - Broadcast event
+    end note
+    
+    :display prepared notification file list;
+    note right
+      GET /api/notifications
+      
+      Show list with:
+      - Title
+      - Message
+      - Timestamp
+      - Read/Unread status
+      - Action URL
+    end note
+    
+    |#LightCyan|User|
+    if (Has file notification?) then (Yes/click on File notification)
+        
+        :display file notification detail;
+        note right
+          Show notification:
+          - Type (info, success, warning)
+          - Title
+          - Full message
+          - Action button
+        end note
+        
+        |#LightGreen|System|
+        :Mark as read;
+        note right
+          POST /api/notifications/{id}/read
+          
+          Update:
+          - read = true
+          - read_at = now()
+        end note
+        
+        |#LightCyan|User|
+        if (Has action URL?) then (Yes)
+            :Navigate to action URL;
+            note right
+              Examples:
+              - /student/applications/{id}
+              - /companyadmin/applications
+              - /student/postings/{id}
+            end note
+        else (No)
+            :Close notification;
+        endif
+        
+        stop
+        note right: Final State
+        
+    else (No file notification)
+        :Display empty state;
+        note right
+          "No notifications"
+        end note
+        
+        stop
+        note right: Final State
+    endif
+    
+else (No file - check it again)
+    :No notifications found;
+    
+    backward :initiate file;
+endif
+
+@enduml
+

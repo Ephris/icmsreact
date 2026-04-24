@@ -1,0 +1,510 @@
+<mxfile host="app.diagrams.net" modified="2026-01-11T12:00:00.000Z" agent="Mozilla/5.0" version="22.1.0" type="device">
+  <diagram name="Manage Application (Student) Sequence" id="manage-application-sequence">
+    <mxGraphModel dx="1100" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="title" value="ICMS - Manage Application (Student) Sequence Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="180" y="10" width="450" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== TOP PARTICIPANTS ==================== -->
+        
+        <mxCell id="user-actor" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="50" width="30" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="applist-box" value="Applications&#xa;Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="55" width="75" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appview-box" value="Application&#xa;View" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="55" width="75" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-box" value="Student&#xa;Controller" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="55" width="75" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database-box" value="Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="45" width="60" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notif-box" value="Notification&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="530" y="55" width="70" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="company-box" value="Company&#xa;Admin" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="640" y="55" width="65" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LIFELINES ==================== -->
+        
+        <mxCell id="user-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="110" as="sourcePoint" />
+            <mxPoint x="40" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="applist-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="137" y="95" as="sourcePoint" />
+            <mxPoint x="137" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="appview-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="247" y="95" as="sourcePoint" />
+            <mxPoint x="247" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="controller-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="357" y="95" as="sourcePoint" />
+            <mxPoint x="357" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="database-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="100" as="sourcePoint" />
+            <mxPoint x="460" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="notif-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="565" y="95" as="sourcePoint" />
+            <mxPoint x="565" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="company-lifeline" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;rounded=0;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="672" y="95" as="sourcePoint" />
+            <mxPoint x="672" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== SECTION 1: VIEW APPLICATIONS ==================== -->
+        
+        <mxCell id="section1-frame" value="View Applications" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontStyle=1;fontSize=10;width=110;height=20;" vertex="1" parent="1">
+          <mxGeometry x="20" y="115" width="700" height="145" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="applist-act-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="132" y="140" width="10" height="105" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="165" width="10" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="455" y="180" width="10" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="145" as="sourcePoint" />
+            <mxPoint x="132" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-1" value="viewApplications()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="128" width="70" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="142" y="170" as="sourcePoint" />
+            <mxPoint x="352" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-2" value="GET /student/applications" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="190" y="155" width="115" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="362" y="185" as="sourcePoint" />
+            <mxPoint x="455" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-3" value="query applications&#xa;with posting, feedback" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="370" y="168" width="85" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-4" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="455" y="200" as="sourcePoint" />
+            <mxPoint x="362" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-4" value="return apps[]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="380" y="185" width="65" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-5" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="352" y="225" as="sourcePoint" />
+            <mxPoint x="142" y="225" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-5" value="display applications list" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="195" y="210" width="105" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-1-6" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="132" y="245" as="sourcePoint" />
+            <mxPoint x="40" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-1-6" value="show list" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="55" y="230" width="55" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== SECTION 2: VIEW APPLICATION DETAILS ==================== -->
+        
+        <mxCell id="section2-frame" value="View Application Details" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontStyle=1;fontSize=10;width=145;height=20;" vertex="1" parent="1">
+          <mxGeometry x="20" y="270" width="700" height="145" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appview-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="242" y="295" width="10" height="105" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="320" width="10" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="455" y="335" width="10" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="300" as="sourcePoint" />
+            <mxPoint x="242" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-1" value="selectApplication(app_id)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="95" y="283" width="100" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="252" y="325" as="sourcePoint" />
+            <mxPoint x="352" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-2" value="GET /applications/{id}" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="260" y="308" width="90" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="362" y="340" as="sourcePoint" />
+            <mxPoint x="455" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-3" value="query app details" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="375" y="325" width="75" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-4" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="455" y="355" as="sourcePoint" />
+            <mxPoint x="362" y="355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-4" value="return details" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="380" y="340" width="65" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-5" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="352" y="380" as="sourcePoint" />
+            <mxPoint x="252" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-5" value="render details" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="275" y="365" width="65" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-2-6" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="400" as="sourcePoint" />
+            <mxPoint x="40" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-2-6" value="display app details (status, posting, feedback)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="75" y="385" width="145" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== SECTION 3: ACCEPT/DECLINE OFFER (ALT) ==================== -->
+        
+        <mxCell id="alt-frame-1" value="" style="shape=frame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontSize=10;width=30;height=18;" vertex="1" parent="1">
+          <mxGeometry x="20" y="425" width="700" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-label-1" value="alt" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="22" y="427" width="28" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-cond-1" value="[Status = Approved - Accept Offer]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="55" y="427" width="180" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appview-act-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="242" y="450" width="10" height="85" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="475" width="10" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="455" y="490" width="10" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notif-act-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="510" width="10" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="455" as="sourcePoint" />
+            <mxPoint x="242" y="455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-1" value="click Accept Offer()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="438" width="85" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="252" y="480" as="sourcePoint" />
+            <mxPoint x="352" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-2" value="POST acceptApplication()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="255" y="463" width="100" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="362" y="495" as="sourcePoint" />
+            <mxPoint x="455" y="495" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-3" value="update status='accepted'" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="370" y="480" width="85" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="362" y="520" as="sourcePoint" />
+            <mxPoint x="560" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-4" value="notify company admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="415" y="505" width="95" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-3-5" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="535" as="sourcePoint" />
+            <mxPoint x="40" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-3-5" value="redirect: &quot;Offer accepted&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="85" y="520" width="110" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Alt divider 1 -->
+        <mxCell id="alt-divider-1" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="555" as="sourcePoint" />
+            <mxPoint x="720" y="555" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="alt-cond-2" value="[Status = Approved - Decline Offer]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="25" y="557" width="185" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appview-act-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="242" y="578" width="10" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="595" width="10" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="583" as="sourcePoint" />
+            <mxPoint x="242" y="583" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-1" value="click Decline Offer()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="566" width="85" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="252" y="600" as="sourcePoint" />
+            <mxPoint x="352" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-2" value="POST declineApplication()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="255" y="583" width="100" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-4-3" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="623" as="sourcePoint" />
+            <mxPoint x="40" y="623" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-4-3" value="redirect: &quot;Offer declined&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="85" y="608" width="110" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Alt divider 2 -->
+        <mxCell id="alt-divider-2" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="640" as="sourcePoint" />
+            <mxPoint x="720" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="alt-cond-3" value="[Status = Pending - Withdraw Application]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="25" y="642" width="210" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appview-act-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="242" y="663" width="10" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-act-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="678" width="10" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db-act-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFF99;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="455" y="685" width="10" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-5-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="668" as="sourcePoint" />
+            <mxPoint x="242" y="668" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-5-1" value="click Withdraw()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="105" y="651" width="75" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-5-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="252" y="683" as="sourcePoint" />
+            <mxPoint x="352" y="683" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-5-2" value="POST withdrawApp()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="260" y="666" width="85" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-5-3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="362" y="690" as="sourcePoint" />
+            <mxPoint x="455" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-5-3" value="delete app" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="385" y="675" width="55" height="15" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arr-5-4" value="" style="endArrow=open;html=1;rounded=0;strokeColor=#8B0000;strokeWidth=1;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="718" as="sourcePoint" />
+            <mxPoint x="40" y="718" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-5-4" value="redirect: &quot;Application withdrawn&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="75" y="703" width="130" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== NOTES ==================== -->
+        
+        <mxCell id="note-status" value="Application Status:&#xa;• pending - waiting review&#xa;• approved - offer received&#xa;• rejected - not accepted&#xa;• accepted - student accepted&#xa;• completed - internship done" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFACD;strokeColor=#B8860B;fontSize=8;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="20" y="700" width="150" height="85" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="note-actions" value="Student Actions:&#xa;• View all applications&#xa;• View details&#xa;• Accept/Decline approved&#xa;• Withdraw pending&#xa;• View analytics (completed)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFACD;strokeColor=#B8860B;fontSize=8;align=left;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="190" y="700" width="140" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LIFECYCLE END MARKERS (X) ==================== -->
+        
+        <mxCell id="x-applist" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="129" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-appview" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="239" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-controller" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="349" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-database" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="452" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-notif" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="557" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="x-company" value="X" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="664" y="985" width="16" height="16" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== BOTTOM PARTICIPANTS ==================== -->
+        
+        <mxCell id="user-actor-btm" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="1010" width="30" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="applist-box-btm" value="Applications&#xa;Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1015" width="75" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="appview-box-btm" value="Application&#xa;View" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="1015" width="75" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="controller-box-btm" value="Student&#xa;Controller" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1015" width="75" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database-box-btm" value="Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1005" width="60" height="55" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notif-box-btm" value="Notification&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1015" width="70" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="company-box-btm" value="Company&#xa;Admin" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B8E6E6;strokeColor=#000000;strokeWidth=1;fontStyle=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1015" width="65" height="40" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

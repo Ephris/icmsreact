@@ -1,0 +1,207 @@
+@startuml User_Account_States
+!theme plain
+skinparam state {
+    BackgroundColor<<pending>> LightYellow
+    BackgroundColor<<active>> LightGreen
+    BackgroundColor<<warning>> Orange
+    BackgroundColor<<inactive>> LightGray
+    BackgroundColor<<blocked>> Pink
+}
+
+title ICMS - User Account Lifecycle States\nState Chart Diagram
+
+[*] --> Created : Admin creates\naccount
+
+state "Created" as Created <<pending>> {
+    Created : Entry: Generate credentials
+    Created : Entry: Send welcome email
+    Created : Entry: Set email_verified = false
+    Created : Do: Wait for email verification
+    Created : Exit: Update verification status
+}
+
+Created --> PendingVerification : Account created
+
+state "Pending Verification" as PendingVerification <<pending>> {
+    PendingVerification : Entry: Send verification email
+    PendingVerification : Entry: Set verification token
+    PendingVerification : Entry: Set token expiry (24h)
+    PendingVerification : Do: Wait for user action
+    PendingVerification : Exit: Clear verification token
+    
+    state "Awaiting Email" as AwaitingEmail {
+        AwaitingEmail : User hasn't clicked link
+    }
+    
+    state "Link Expired" as LinkExpired {
+        LinkExpired : Token expired
+        LinkExpired : Needs resend
+    }
+    
+    [*] --> AwaitingEmail
+    AwaitingEmail --> LinkExpired : Token expires\n(24 hours)
+    LinkExpired --> AwaitingEmail : Resend verification
+}
+
+PendingVerification --> Active : Email verified
+PendingVerification --> Created : Resend verification
+
+state "Active" as Active <<active>> {
+    Active : Entry: Set status = 'active'
+    Active : Entry: Enable all features
+    Active : Entry: Log first login
+    Active : Do: Normal system access
+    Active : Exit: Log status change
+    
+    state "Online" as Online {
+        Online : User logged in
+        Online : Session active
+    }
+    
+    state "Offline" as Offline {
+        Offline : User logged out
+        Offline : Session ended
+    }
+    
+    [*] --> Offline
+    Offline --> Online : Login
+    Online --> Offline : Logout/Timeout
+    Online --> [*]
+}
+
+Active --> Inactive : Admin deactivates\n/ Graduation
+Active --> Suspended : Policy violation
+Active --> Locked : Too many failed\nlogin attempts
+
+state "Inactive" as Inactive <<inactive>> {
+    Inactive : Entry: Set status = 'inactive'
+    Inactive : Entry: Disable login
+    Inactive : Entry: Preserve data
+    Inactive : Do: Cannot access system
+    Inactive : Exit: Log reactivation
+    
+    note right
+        **Inactive Reasons:**
+        - Student graduated
+        - Contract ended
+        - Extended leave
+        - User request
+    end note
+}
+
+Inactive --> Active : Admin reactivates
+Inactive --> Deleted : Permanent removal\n(GDPR request)
+
+state "Suspended" as Suspended <<blocked>> {
+    Suspended : Entry: Set status = 'suspended'
+    Suspended : Entry: Disable all access
+    Suspended : Entry: Notify admin
+    Suspended : Entry: Record violation
+    Suspended : Do: Under investigation
+    Suspended : Exit: Record resolution
+    
+    state "Under Review" as UnderReview {
+        UnderReview : Investigation ongoing
+    }
+    
+    state "Appeal Submitted" as Appeal {
+        Appeal : User appealed suspension
+    }
+    
+    [*] --> UnderReview
+    UnderReview --> Appeal : User submits appeal
+    Appeal --> UnderReview : Appeal reviewed
+}
+
+Suspended --> Active : Suspension lifted
+Suspended --> Deleted : Permanent ban
+
+state "Locked" as Locked <<warning>> {
+    Locked : Entry: Set temporary lock
+    Locked : Entry: Record failed attempts
+    Locked : Entry: Set lockout duration
+    Locked : Do: Prevent login
+    Locked : Exit: Reset failed attempts
+    
+    state "Temporary Lock" as TempLock {
+        TempLock : Duration: 15 minutes
+        TempLock : Auto-unlock after duration
+    }
+    
+    state "Extended Lock" as ExtLock {
+        ExtLock : Duration: 24 hours
+        ExtLock : Repeated violations
+    }
+    
+    [*] --> TempLock
+    TempLock --> ExtLock : Repeated lockouts\n(3+ times)
+}
+
+Locked --> Active : Lock period\nexpired
+Locked --> Active : Admin unlocks
+Locked --> Suspended : Suspected\nmalicious activity
+
+state "Deleted" as Deleted <<blocked>> {
+    Deleted : Entry: Soft delete record
+    Deleted : Entry: Anonymize PII data
+    Deleted : Entry: Remove from active lists
+    Deleted : Entry: Retain for legal period
+    Deleted : Do: Cannot be accessed
+    Deleted : Exit: Permanent removal
+}
+
+Deleted --> [*] : Data retention\nperiod ended
+
+' Password Reset Flow (parallel state)
+state "Password Reset" as PasswordReset {
+    state "Reset Requested" as ResetRequested {
+        ResetRequested : Token generated
+        ResetRequested : Email sent
+    }
+    
+    state "Reset in Progress" as ResetInProgress {
+        ResetInProgress : Token validated
+        ResetInProgress : New password form
+    }
+    
+    state "Reset Completed" as ResetCompleted {
+        ResetCompleted : Password updated
+        ResetCompleted : Return to active
+    }
+    
+    [*] --> ResetRequested
+    ResetRequested --> ResetInProgress : Token validated
+    ResetInProgress --> ResetCompleted : Password changed
+    ResetCompleted --> [*]
+}
+
+Active -[dashed]-> PasswordReset : Forgot password
+Locked -[dashed]-> PasswordReset : Reset to unlock
+PasswordReset -[dashed]-> Active : Password reset
+
+note left of Active
+    **Active Features:**
+    - Full system access
+    - Based on role permissions
+    - Can update profile
+    - Receives notifications
+end note
+
+note right of Locked
+    **Lockout Rules:**
+    - 5 failed attempts = 15 min lock
+    - 3 lockouts = 24 hour lock
+    - Admin can manually unlock
+    - Password reset bypasses lock
+end note
+
+note bottom of Suspended
+    **Suspension Reasons:**
+    - Terms of service violation
+    - Fraudulent activity
+    - Inappropriate behavior
+    - Security concern
+end note
+
+@enduml
+
