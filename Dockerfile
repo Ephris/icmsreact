@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip pdo pdo_mysql
 
 # Configure Apache MPM
-RUN a2dismod mpm_event mpm_worker && a2enmod mpm_prefork
+RUN a2enmod mpm_prefork && a2dismod mpm_event mpm_worker
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
