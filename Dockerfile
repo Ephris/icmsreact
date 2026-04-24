@@ -17,6 +17,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy app
 COPY . /var/www/html
 
+# Start-up script (fixes Apache MPM double-load issues)
+RUN chmod +x /var/www/html/docker-entrypoint.sh
+
 # Install PHP deps
 RUN composer install --no-dev --optimize-autoloader
 
@@ -33,4 +36,4 @@ RUN chown -R www-data:www-data /var/www/html
 EXPOSE 80
 
 # Start Apache
-CMD ["apache2-foreground"]
+CMD ["/var/www/html/docker-entrypoint.sh"]
